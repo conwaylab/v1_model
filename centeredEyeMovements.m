@@ -8,7 +8,7 @@ spirals = struct('coords',[],'angles',[],'theta',[],'radius',[],'center',[]);
 
 spirals(1) = logSpiral(th,b,a,center);
 
-for i = 2:numMovs+1
+for i = 2:numMovs
     moveAngle = rand * 2*pi;
     gazeCenter = center + [cos(moveAngle),sin(moveAngle)]*movDist;
     spirals(i) = logSpiral(th,b,a,gazeCenter);

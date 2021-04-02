@@ -1,4 +1,4 @@
-close all
+% close all
 clearvars
 
 [params,paths] = initializeParametersVariableDisplacement();
@@ -8,6 +8,7 @@ clearvars
 
 dims = params.dims+1;
 
+keyboard
 %% get response to several eye movements
 
 numEyeMove = 2;
@@ -24,12 +25,14 @@ eyeMoveMax = 0.5;
 figure
 scatter(spirals(1).coords(:,1),spirals(1).coords(:,2))
 
-shuffleInds = randperm(numEyeMove);
-offResponsesFlat(:,1) = mean(allOffResponses(:,shuffleInds(1:numEyeMove/2)),2);
-offResponsesFlat(:,2) = mean(allOffResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
-onResponsesFlat(:,1) = mean(allOnResponses(:,shuffleInds(1:numEyeMove/2)),2);
-onResponsesFlat(:,2) = mean(allOnResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
+% shuffleInds = randperm(numEyeMove);
+% offResponsesFlat(:,1) = mean(allOffResponses(:,shuffleInds(1:numEyeMove/2)),2);
+% offResponsesFlat(:,2) = mean(allOffResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
+% onResponsesFlat(:,1) = mean(allOnResponses(:,shuffleInds(1:numEyeMove/2)),2);
+% onResponsesFlat(:,2) = mean(allOnResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
 
+offResponsesFlat = allOffResponses;
+onResponsesFlat = allOnResponses;
 offResponses2D = reshape(offResponsesFlat,dims,dims,numEyeMove);
 onResponses2D = reshape(onResponsesFlat,dims,dims,numEyeMove);
 
@@ -83,7 +86,6 @@ y = 198:236;
 % y = 1:401;
 
 
-
 [subC,subR] = meshgrid(x,y);
 subR = reshape(subR,[],1);
 subC = reshape(subC,[],1);
@@ -108,6 +110,13 @@ onCorr = corr(onResponseFovea(:,1),onResponseFovea(:,2))
 
 figure
 scatter(offResponseFovea(:,1),offResponseFovea(:,2))
+ylim([0,1.4])
+xlim([0,1.4])
+axis equal
+axis square
+
+figure
+scatter(onResponseFovea(:,1),onResponseFovea(:,2))
 ylim([0,1.4])
 xlim([0,1.4])
 axis equal
@@ -197,6 +206,11 @@ end
 
 windowCorrs = [offCorrs,onCorrs];
 sum(windowCorrs(:,1) > windowCorrs(:,2)) / numel(iV1)
+
+figure
+scatter(offCorrs,onCorrs)
+hold on
+line([0,1],[0,1])
 
 %% see where the OFF correlation is greater than the ON correlation by
 % a defined threshold

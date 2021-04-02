@@ -1,7 +1,7 @@
 close all
 clearvars
 
-dims = 400; %dimensions of retinotopy map
+dims = 700; %dimensions of retinotopy map
 %% load the coord structures from step 1
 if ~exist('b_lh')
     load('allVertexCoords.mat');

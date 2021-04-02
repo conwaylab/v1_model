@@ -5,16 +5,16 @@ load([paths.subjectDir filesep 'retinotopyMaps_sz_' num2str(dims) '.mat'],'flatR
 %% make pinwheels
 
 % initializeParametersVariableDisplacement
-% params.pinwheelSz
-% interpLev = params.dims / params.pinwheelSz;
-% pinwheels = makePinwheels(params.pinwheelSz,interpLev,0); %need to edit this function
+params.pinwheelSz
+interpLev = params.dims / params.pinwheelSz;
+pinwheels = makePinwheels(params.pinwheelSz,interpLev,0); %need to edit this function
 % 
-% pinwheels = pinwheels(1:dims,1:dims);
-% pinwheels = rad2deg(pinwheels);
-% negDegrees = pinwheels < 0;
-% pinwheels(negDegrees) = pinwheels(negDegrees) + 180;
+pinwheels = pinwheels(1:dims,1:dims);
+pinwheels = rad2deg(pinwheels);
+negDegrees = pinwheels < 0;
+pinwheels(negDegrees) = pinwheels(negDegrees) + 180;
 
-load('pinwheels.mat')
+% load('pinwheels.mat')
 
 % pinwheels = rand(dims,dims)*2*pi-pi;
 

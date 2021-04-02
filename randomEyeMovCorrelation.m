@@ -134,33 +134,105 @@ end
 axis equal
 axis tight
 
-%% correlate the response to each eye position to the first eye position 
-% within each of the windows
+%% Approach 1 
+% Divide the responses to eye movements into two groups, average the
+% responses in each group, and get the correlations between the two
+% averages 
+shuffleInds = randperm(numEyeMovs);
+for iter = 1:numel(onSigmaFractions)
+    firstHalfI = 1:numEyeMovs/2;
+    secondHalfI = (numEyeMovs/2+1):numEyeMovs;
+    offResponse(:,1) = mean(allOffResponses(:,shuffleInds(firstHalfI),iter),2);
+    offResponse(:,2) = mean(allOffResponses(:,shuffleInds(secondHalfI),iter),2);
+    onResponse(:,1) = mean(allOnResponses(:,shuffleInds(firstHalfI),iter),2);
+    onResponse(:,2) = mean(allOnResponses(:,shuffleInds(secondHalfI),iter),2);
 
-offCorrs = zeros(numEyeMovs,numel(iV1),numel(onSigmaFractions));
-onCorrs = zeros(numEyeMovs,numel(iV1),numel(onSigmaFractions));
+    % Organize the responses into the windows defined previously 
+    [offWinResponse,onWinResponse] = responseWindows(offResponse,onResponse,...
+        windowInds);
 
-for iSig = 1:3
-    for iWin = 1:numel(iV1)
-        disp(iWin)
-        thisOffResponse = allOffResponses(windowInds(:,iV1(iWin)),:,iSig);
-        thisOnResponse = allOnResponses(windowInds(:,iV1(iWin)),:,iSig);
-        for iPos = 1:numEyeMovs
-            offCorrs(iPos,iWin,iSig) = corr(thisOffResponse(:,iPos),...
-                thisOffResponse(:,1));
-            onCorrs(iPos,iWin,iSig) = corr(thisOnResponse(:,iPos),...
-                thisOnResponse(:,1));
-        end
+    offWinResponse2D = reshape(offWinResponse,windowSize,windowSize,numWindows,2);
+    onWinResponse2D = reshape(onWinResponse,windowSize,windowSize,numWindows,2);
+
+    % only the response windows that encompass V1
+    V1OffResponse2D = offWinResponse2D(:,:,isV1Window,:);
+    V1OnResponse2D = onWinResponse2D(:,:,isV1Window,:);
+    V1OffResponse = offWinResponse(:,isV1Window,:);
+    V1OnResponse = onWinResponse(:,isV1Window,:);
+    
+    % average the responses within each window
+    V1OffResponseMean = squeeze(mean(V1OffResponse));
+    V1OnResponseMean = squeeze(mean(V1OnResponse));
+
+    % get the correlation between the window responses in the previously
+    % defined subregion    
+    regionOffResponses(:,:,iter) = V1OffResponseMean(regionWindowInds,:);
+    regionOnResponses(:,:,iter) = V1OnResponseMean(regionWindowInds,:);
+    corrsOff(iter) = corr(regionOffResponses(:,1,iter),regionOffResponses(:,2,iter));
+    corrsOn(iter) = corr(regionOnResponses(:,1,iter),regionOnResponses(:,2,iter));
+
+end
+
+%% Approach 2
+% Randomly pick two eye positions and correlate the responses to each.
+% Repeate several times then average the correlations
+
+nRuns = 10;
+regionOffResponses = zeros(numel(regionWindowInds),2,numel(onSigmaFractions));
+regionOnResponses = zeros(numel(regionWindowInds),2,numel(onSigmaFractions));
+for iRun = 1:nRuns
+    % randomly pick two eye positions
+    ind1 = randi(numEyeMovs);
+    ind2 = ind1;
+    while ind2==ind1
+        ind2 = randi(numEyeMovs);
+    end
+    firstInd(iRun) = ind1;
+    secondInd(iRun) = ind2;
+    for iSigFrac = 1:numel(onSigmaFractions)
+        thisOffResponse(:,1) = allOffResponses(:,ind1,iSigFrac);
+        thisOffResponse(:,2) = allOffResponses(:,ind2,iSigFrac);
+        thisOnResponse(:,1) = allOnResponses(:,ind1,iSigFrac);
+        thisOnResponse(:,2) = allOnResponses(:,ind2,iSigFrac);
+        
+        % Organize the responses into the windows defined previously 
+        [offWinResponse,onWinResponse] = responseWindows(thisOffResponse,thisOnResponse,...
+            windowInds);
+        offWinResponse2D = reshape(offWinResponse,windowSize,windowSize,numWindows,2);
+        onWinResponse2D = reshape(onWinResponse,windowSize,windowSize,numWindows,2);
+
+        % only the response windows that encompass V1
+        V1OffResponse2D = offWinResponse2D(:,:,isV1Window,:);
+        V1OnResponse2D = onWinResponse2D(:,:,isV1Window,:);
+        V1OffResponse = offWinResponse(:,isV1Window,:);
+        V1OnResponse = onWinResponse(:,isV1Window,:);
+
+        % average the responses within each window
+        V1OffResponseMean = squeeze(mean(V1OffResponse));
+        V1OnResponseMean = squeeze(mean(V1OnResponse));
+
+        % get the correlation between the window responses in the previously
+        % defined subregion
+        regionOffResponses(:,:,iSigFrac) = V1OffResponseMean(regionWindowInds,:);
+        regionOnResponses(:,:,iSigFrac) = V1OnResponseMean(regionWindowInds,:);
+        corrsOff(iSigFrac,iRun) = corr(regionOffResponses(:,1,iSigFrac),regionOffResponses(:,2,iSigFrac));
+        corrsOn(iSigFrac,iRun) = corr(regionOnResponses(:,1,iSigFrac),regionOnResponses(:,2,iSigFrac));
     end
 end
 
-offCorrMean = squeeze(mean(offCorrs(2:numEyeMovs,:,:)));
-onCorrMean = squeeze(mean(onCorrs(2:numEyeMovs,:,:)));
-offOnDiff = offCorrMean - onCorrMean;
+% average the correlations for each ON displacement
+meanCorrOff = mean(corrsOff,2);
+meanCorrOn = mean(corrsOn,2);
 
 figure
-scatter(offCorrMean(:,3),onCorrMean(:,3))
-line([0,1],[0,1])
+plot(onSigmaFractions,meanCorrOff,'Color',[0 0 1])
+hold on
+plot(onSigmaFractions,meanCorrOn,'Color',[1 0 0])
+legend('off','on')
+xlabel('ON Sigma Fraction')
+ylabel('Average Correlation')
+
+
 %%
 offCheck = allOffResponses(:,2:3,2);
 onCheck = allOnResponses(:,2:3,2);

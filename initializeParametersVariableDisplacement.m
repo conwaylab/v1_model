@@ -10,7 +10,7 @@ params.variableDisplacement = 1;
 
 %flat map params
 params.dims = 400; %actual size will be mapDims+1
-params.pinwheelSz = 400;
+params.pinwheelSz = 700;
 
 %cortical model params
 params.onSigmaFraction = 2; %what percent of the sigma the on cell should be displaced

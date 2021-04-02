@@ -41,6 +41,9 @@ colorbar
 axis equal
 axis tight
 
+keyboard 
+
+
 onAngles = visualToStandardPolar(onField.angleFlat);
 offAngles = visualToStandardPolar(offField.angleFlat);
 
