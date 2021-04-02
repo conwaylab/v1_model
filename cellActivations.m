@@ -30,8 +30,10 @@ for i = 1:numel(nonNanI)
     orientationResponse = orientationResponseMagnitude(vertOrientPref,...
         stimAngle);
 
-    activations(ind) = abs(sigmaResponse*orientationResponse + normrnd(0,responseSigma));
-    
+%     activations(ind) = abs(sigmaResponse*orientationResponse + normrnd(0,responseSigma));
+
+    activations(ind) = abs(sigmaResponse*orientationResponse * normrnd(1,responseSigma));
+
 end
 
 end

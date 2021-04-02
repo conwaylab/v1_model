@@ -3,8 +3,13 @@ clearvars
 
 addpath(genpath([pwd '/lilac4_sim']))
 
-initializeParametersVariableDisplacement
-load([paths.modelDir params.desc '.mat'])
+[params,paths] = initializeParametersVariableDisplacement;
+params.onSigmaFraction = 3;
+params.dispNoiseCoeff = 0.3;
+params.angleNoiseCoeff = 0;
+
+modelName = 'dim400_pinwheel400_onSigmaFrac3_dispNoiseCoeff0.3_angleNoiseCoeff0_disp0';
+load(fullfile(paths.modelDir,[modelName '.mat']))
 % 
 load('flatmapV1_highres.mat')
 flatpatch = bflat.data;
@@ -222,7 +227,7 @@ title(ax1,'OFF Resposne')
 
 %% off field flat maps
 alphaAmount = 0.9;
-
+nanI = isnan(offField.eccen);
 figure
 %orientation
 ax1 = axes;
@@ -237,7 +242,7 @@ alpha = ones(size(offField.orientation))*alphaAmount;
 alpha(nanI) = 0;
 set(h, 'AlphaData', alpha);
 colormap(ax2,'hsv')
-% cb1 = colorbar(ax2)
+cb1 = colorbar(ax2)
 linkaxes([ax2,ax1])
 ax2.Visible = 'off';
 ax2.XTick = [];
@@ -264,7 +269,7 @@ alpha = ones(size(offField.angle))*alphaAmount;
 alpha(nanI) = 0;
 set(h, 'AlphaData', alpha);
 colormap(ax6,'hsv')
-% cb3 = colorbar(ax6)
+cb3 = colorbar(ax6)
 linkaxes([ax6,ax5])
 ax6.Visible = 'off';
 ax6.XTick = [];
@@ -275,8 +280,8 @@ axis equal
 axis tight
 set([ax5,ax6],'Position',[.17 .11 .685 .815]);
 title(ax5,'Angle')
-subplot(1,4,2,ax5)
-subplot(1,4,2,ax6)
+subplot(1,4,3,ax5)
+subplot(1,4,3,ax6)
 
 %eccentricity
 ax3 = axes;
@@ -291,7 +296,7 @@ alpha = ones(size(offField.eccen))*alphaAmount;
 alpha(nanI) = 0;
 set(h, 'AlphaData', alpha);
 colormap(ax4,'hsv')
-% cb2 = colorbar(ax4)
+cb2 = colorbar(ax4)
 linkaxes([ax4,ax3])
 ax4.Visible = 'off';
 ax4.XTick = [];
@@ -302,8 +307,8 @@ axis equal
 axis tight
 set([ax3,ax4],'Position',[.17 .11 .685 .815]);
 title(ax3,'Eccentricity')
-subplot(1,4,3,ax3)
-subplot(1,4,3,ax4)
+subplot(1,4,2,ax3)
+subplot(1,4,2,ax4)
 
 %sigma
 ax7 = axes;
@@ -318,7 +323,7 @@ alpha = ones(size(offField.sigma))*alphaAmount;
 alpha(nanI) = 0;
 set(h, 'AlphaData', alpha);
 colormap(ax8,'hsv')
-% cb4 = colorbar(ax8)
+cb4 = colorbar(ax8)
 linkaxes([ax8,ax7])
 ax8.Visible = 'off';
 ax8.XTick = [];

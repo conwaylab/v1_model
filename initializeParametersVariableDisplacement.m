@@ -13,7 +13,7 @@ params.dims = 400; %actual size will be mapDims+1
 params.pinwheelSz = 400;
 
 %cortical model params
-params.onSigmaFraction = 2; %what percent of the sigma the on cell should be displaced
+params.onSigmaFraction = 3; %what percent of the sigma the on cell should be displaced
 params.disp = 0; %a constant to be added to the ON subfield displacement
 params.dispNoiseCoeff = 0; %noise added to the on subfield placement
 params.angleNoiseCoeff = 0; %noise added to displacement angle

@@ -18,17 +18,26 @@ spiral.b = 0.7;
 spiral.a = 0.08;
 eyeMoveMax = 0.5;
 
-[allOffResponses,allOnResponses,spirals] = eyeMovementResponse(offField,onField,...
-    spiral,numEyeMove,eyeMoveMax,params);
+spirals = eyeMovements(spiral,numEyeMove,eyeMoveMax);
+
+for i = 1:numEyeMove
+    disp(i)
+    allOffResponses(:,i) = cellActivations(offField,spirals(i),params);
+    allOnResponses(:,i) = cellActivations(onField,spirals(i),params);
+end
 
 figure
 scatter(spirals(1).coords(:,1),spirals(1).coords(:,2))
 
-shuffleInds = randperm(numEyeMove);
-offResponsesFlat(:,1) = mean(allOffResponses(:,shuffleInds(1:numEyeMove/2)),2);
-offResponsesFlat(:,2) = mean(allOffResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
-onResponsesFlat(:,1) = mean(allOnResponses(:,shuffleInds(1:numEyeMove/2)),2);
-onResponsesFlat(:,2) = mean(allOnResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
+% this was for taking the mean of half the eye movement responses
+% shuffleInds = randperm(numEyeMove);
+% offResponsesFlat(:,1) = mean(allOffResponses(:,shuffleInds(1:numEyeMove/2)),2);
+% offResponsesFlat(:,2) = mean(allOffResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
+% onResponsesFlat(:,1) = mean(allOnResponses(:,shuffleInds(1:numEyeMove/2)),2);
+% onResponsesFlat(:,2) = mean(allOnResponses(:,shuffleInds(numEyeMove/2:numEyeMove)),2);
+
+offResponsesFlat = allOffResponses;
+onResponsesFlat = allOnResponses;
 
 offResponses2D = reshape(offResponsesFlat,dims,dims,numEyeMove);
 onResponses2D = reshape(onResponsesFlat,dims,dims,numEyeMove);
@@ -55,6 +64,9 @@ inds = intersect(eccenInds,angleInds);
 offResponseFovea = offResponsesFlat(inds,:);
 onResponseFovea = onResponsesFlat(inds,:);
 
+offResponseFovea2 = allOffResponses(inds,:);
+onResponseFovea2 = allOnResponses(inds,:);
+
 % figure
 % subplot(2,2,1)
 % imagesc(offResponses2D(inds,1))
@@ -66,8 +78,12 @@ onResponseFovea = onResponsesFlat(inds,:);
 % subplot(2,2,4)
 % imagesc(onResponses2D(inds,2))
 
+
 offCorr = corr(offResponseFovea(:,1),offResponseFovea(:,2))
 onCorr = corr(onResponseFovea(:,1),onResponseFovea(:,2))
+
+offCorr = corr(offResponseFovea2(:,1),offResponseFovea2(:,2))
+onCorr = corr(onResponseFovea2(:,1),onResponseFovea2(:,2))
 
 figure
 scatter(offResponseFovea(:,1),offResponseFovea(:,2))
@@ -75,6 +91,17 @@ ylim([0,1.4])
 xlim([0,1.4])
 axis equal
 axis square
+
+
+figure
+scatter(onResponseFovea(:,1),onResponseFovea(:,2))
+ylim([0,1.4])
+xlim([0,1.4])
+axis equal
+axis square
+
+saveDir = 'C:\Users\singhsr\Documents\Documentation\MEG_Paper\Presentations\LSR-JC_3-18-21\Simulation\';
+save(fullfile(saveDir,'spiralResponse.mat'),'spirals','allOffResponses','allOnResponses')
 
 %% look at a small window near the fovea
 x = 2:28;
@@ -82,12 +109,24 @@ y = 198:236;
 % x = 1:401;
 % y = 1:401;
 
-
-
 [subC,subR] = meshgrid(x,y);
 subR = reshape(subR,[],1);
 subC = reshape(subC,[],1);
-foveaInds = sub2ind(size(offField.angle),subR,subC);
+foveaInds1 = sub2ind(size(offField.angle),subR,subC);
+
+eccen = [0,7];
+angle = [40,170];
+eccenInds1 = find(offField.eccen > eccen(1)); 
+eccenInds2 = find(offField.eccen < eccen(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle > angle(1));
+angleInds2 = find(offField.angle < angle(2));
+angleInds = intersect(angleInds1,angleInds2);
+inds = intersect(eccenInds,angleInds);
+
+foveaInds = intersect(inds,foveaInds1);
+
+[y2,x2] = ind2sub([401,401],foveaInds);
 
 offResponseFovea = offResponsesFlat(foveaInds,:);
 onResponseFovea = onResponsesFlat(foveaInds,:);
@@ -95,13 +134,26 @@ onResponseFovea = onResponsesFlat(foveaInds,:);
 figure
 subplot(2,2,1)
 imagesc(offResponses2D(y,x,1))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
+
 subplot(2,2,2)
 imagesc(offResponses2D(y,x,2))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 subplot(2,2,3)
 imagesc(onResponses2D(y,x,1))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 subplot(2,2,4)
 imagesc(onResponses2D(y,x,2))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 offCorr = corr(offResponseFovea(:,1),offResponseFovea(:,2))
 onCorr = corr(onResponseFovea(:,1),onResponseFovea(:,2))
@@ -114,13 +166,112 @@ axis equal
 axis square
 
 figure
+scatter(onResponseFovea(:,1),onResponseFovea(:,2))
+ylim([0,1.4])
+xlim([0,1.4])
+axis equal
+axis square
+
+
+figure
 scatter(spirals(1).coords(:,1),spirals(2).coords(:,2))
 hold on
 scatter(spirals(2).coords(:,1),spirals(2).coords(:,2))
 
+%% look at a small window near the fovea, for several eyemovements, all correlated to first position
+
+load('onOffResponse_100_movements_dist0.5.mat')
+allOffResponses100 = allOffResponses;
+allOnResponses100 = allOnResponses;
+x = 2:28;
+y = 198:236;
+% x = 1:401;
+% y = 1:401;
+
+[subC,subR] = meshgrid(x,y);
+subR = reshape(subR,[],1);
+subC = reshape(subC,[],1);
+foveaInds1 = sub2ind(size(offField.angle),subR,subC);
+
+eccen = [0,7];
+angle = [40,170];
+eccenInds1 = find(offField.eccen > eccen(1)); 
+eccenInds2 = find(offField.eccen < eccen(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle > angle(1));
+angleInds2 = find(offField.angle < angle(2));
+angleInds = intersect(angleInds1,angleInds2);
+inds = intersect(eccenInds,angleInds);
+
+foveaInds = intersect(inds,foveaInds1);
+
+[y2,x2] = ind2sub([401,401],foveaInds);
+
+offResponseFovea100 = allOffResponses100(foveaInds,:);
+onResponseFovea100 = allOnResponses100(foveaInds,:);
+
+numEyeMov = size(allOffResponses100,2);
+offCorrs = zeros(numEyeMov-1,1);
+onCorrs = zeros(numEyeMov-1,1);
+for i = 2:numEyeMov
+     offCorrs(i-1) = corr(offResponseFovea100(:,1),offResponseFovea100(:,i));
+     onCorrs(i-1) = corr(onResponseFovea100(:,1),onResponseFovea100(:,i));
+end
+
+onOffCorrs = [offCorrs,onCorrs];
+mean(onOffCorrs)
+[maxOff,iMaxOff] = max(offCorrs);
+[minOff,iMinOff] = min(offCorrs);
+
+offCorr = corr(offResponseFovea(:,1),offResponseFovea(:,2))
+onCorr = corr(onResponseFovea(:,1),onResponseFovea(:,2))
+
+allOffResponses2D = reshape(allOffResponses,401,401,[]);
+allOnResponses2D = reshape(allOnResponses,401,401,[]);
+
+% i = iMaxOff;
+% figure
+% subplot(2,2,1)
+% imagesc(allOffResponses2D(y,x,1))
+% axis square
+% set(gca,'YTickLabel',[]);
+% set(gca,'XTickLabel',[]);
+% 
+% subplot(2,2,2)
+% imagesc(allOffResponses2D(y,x,i))
+% axis square
+% set(gca,'YTickLabel',[]);
+% set(gca,'XTickLabel',[]);
+% 
+% subplot(2,2,3)
+% imagesc(allOnResponses2D(y,x,1))
+% axis square
+% set(gca,'YTickLabel',[]);
+% set(gca,'XTickLabel',[]);
+% subplot(2,2,4)
+% imagesc(allOnResponses2D(y,x,i))
+% axis square
+% set(gca,'YTickLabel',[]);
+% set(gca,'XTickLabel',[]);
+% 
+% I = iMaxOff+1;
+% figure
+% scatter(offResponseFovea100(:,1),offResponseFovea100(:,I))
+% ylim([0,1.4])
+% xlim([0,1.4])
+% axis equal
+% axis square
+% 
+% figure
+% scatter(onResponseFovea100(:,1),onResponseFovea100(:,I))
+% ylim([0,1.4])
+% xlim([0,1.4])
+% axis equal
+% axis square
+
 %% define a bunch of windows that cover all of V1 
 windowSize = 15;
-stepSize = 15;
+stepSize = windowSize;
 windowInds = zeros(windowSize*windowSize,dims*dims);
 windowSubs = zeros(windowSize*windowSize,2,dims*dims);
 windowCntrs = zeros(dims*dims,2);
@@ -169,6 +320,9 @@ axis tight
 %% Organize the responses into the windows 
 offResponseFlat = zeros([size(windowInds),numIter]);
 onResponseFlat = zeros([size(windowInds),numIter]);
+offResponsesFlat = allOffResponses;
+onResponsesFlat = allOnResponses;
+numIter = 100;
 for i = 1:size(windowInds,2)
     for j = 1:numIter
         offResponseFlat(:,i,j) = offResponsesFlat(windowInds(:,i),j);
@@ -187,21 +341,62 @@ V1OnResponseFlat = onResponseFlat(:,isV1Window,:);
 V1WindowCntrs = windowCntrs(isV1Window,:);
 V1WindowCntrInds = sub2ind([dims,dims],V1WindowCntrs(:,2),V1WindowCntrs(:,1));
 
-% get the correlation of responses within each window
-offCorrs = zeros(numel(iV1),1);
-onCorrs = zeros(numel(iV1),1);
+%% get the correlation of responses within each window
+offCorrs = zeros(numel(iV1),numIter);
+onCorrs = zeros(numel(iV1),numIter);
 for i = 1:numel(iV1)
-    offCorrs(i) = corr(V1OffResponseFlat(:,i,1),V1OffResponseFlat(:,i,2));
-    onCorrs(i) = corr(V1OnResponseFlat(:,i,1),V1OnResponseFlat(:,i,2));
+    for j = 1:numIter
+        offCorrs(i,j) = corr(V1OffResponseFlat(:,i,1),V1OffResponseFlat(:,i,j));
+        onCorrs(i,j) = corr(V1OnResponseFlat(:,i,1),V1OnResponseFlat(:,i,j));
+    end
 end
 
-windowCorrs = [offCorrs,onCorrs];
-sum(windowCorrs(:,1) > windowCorrs(:,2)) / numel(iV1)
+windowCorrs = squeeze(cat(3,offCorrs,onCorrs));
+windowCorrMean = squeeze(mean(windowCorrs(:,2:numIter,:),2));
+mean(windowCorrMean,1)
+% sum(windowCorrs(:,1) > windowCorrs(:,2)) / numel(iV1)
+
+%% temp
+sampleV1WindowInd = 21;
+sampleWindowInd = iV1(sampleV1WindowInd);
+sampleOffResponse = allOffResponses(windowInds(:,sampleWindowInd),:);
+sampleOnResponse = allOnResponses(windowInds(:,sampleWindowInd),:);
+
+sampleOffResponse2D = reshape(sampleOffResponse,windowSize,windowSize,2);
+sampleOnResponse2D = reshape(sampleOnResponse,windowSize,windowSize,2);
+
+figure
+subplot(2,2,1)
+imagesc(sampleOffResponse2D(:,:,1))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
+
+subplot(2,2,2)
+imagesc(sampleOffResponse2D(:,:,2))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
+
+subplot(2,2,3)
+imagesc(sampleOnResponse2D(:,:,1))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
+subplot(2,2,4)
+imagesc(sampleOnResponse2D(:,:,2))
+axis square
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
+
+offCorrs = corr(sampleOffResponse(:,1),sampleOffResponse(:,2))
+onCorrs = corr(sampleOnResponse(:,1),sampleOnResponse(:,2))
+
 
 %% see where the OFF correlation is greater than the ON correlation by
 % a defined threshold
 
-thresh = 0.02;
+thresh = 0;
 offGreaterOn = (windowCorrs(:,1) - windowCorrs(:,2)) > thresh;
 sum(offGreaterOn) / numel(iV1)
 
@@ -255,6 +450,7 @@ axis square
 V1OffResponseMean = squeeze(mean(V1OffResponseFlat));
 V1OnResponseMean = squeeze(mean(V1OnResponseFlat));
 
+
 % view the indices of each window to choose a region center
 % v1Display = zeros(size(offField.angle));
 % v1Display(offField.isV1) = 0.1;
@@ -293,7 +489,7 @@ V1OnResponseMean = squeeze(mean(V1OnResponseFlat));
 % previous plot
 
 % regionWindowInds = [15,16,17,18,19,8,9,10,11,12,22,23,24,25,26,1,2,3,4,5,6];
-regionWindowInds = 1:10;
+regionWindowInds = 1:20;
 regionOffResponses = V1OffResponseMean(regionWindowInds,:);
 regionOnResponses = V1OnResponseMean(regionWindowInds,:);
 
@@ -318,9 +514,21 @@ end
 axis equal
 axis tight
 
-corr(regionOffResponses(:,1),regionOffResponses(:,2))
-corr(regionOnResponses(:,1),regionOnResponses(:,2))
+regionOffCorrs = zeros(numIter,1);
+regionOnCorrs = zeros(numIter,1);
+for i = 1:numIter
+    regionOffCorrs(i) = corr(regionOffResponses(:,1),regionOffResponses(:,i));
+    regionOnCorrs(i) = corr(regionOnResponses(:,1),regionOnResponses(:,i));
+end
 
+regionOnOffCorrs = [regionOffCorrs,regionOnCorrs];
+regionMeanOnOffCorrs = mean(regionOnOffCorrs(2:numIter,:),1)
+% 
+% figure
+% histogram(regionOffCorrs)
+% 
+% figure
+% histogram(regionOnCorrs)
 %% view averaged responses
 
 regionInds = windowInds(:,iV1(regionWindowInds));

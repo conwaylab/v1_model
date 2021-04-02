@@ -75,9 +75,11 @@ title('OFF azimuth')
 colorbar
 axis equal
 axis tight
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 %off elevation
-elev = offY(~isnan(offY));
+elev = abs(offY(~isnan(offY)));
 [~,sortI] = sort(elev);
 corticalCoords = zeros(length(offAngles),2);
 corticalCoords(:,1) = reshape(x,[],1);
@@ -91,6 +93,8 @@ title('OFF elev')
 colorbar
 axis equal
 axis tight
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 %on azimuth
 az = onX(~isnan(onX));
@@ -107,9 +111,11 @@ title('ON azimuth')
 colorbar
 axis equal
 axis tight
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 %on elevation
-elev = onY(~isnan(onY));
+elev = abs(onY(~isnan(onY)));
 [~,sortI] = sort(elev);
 corticalCoords = zeros(length(offAngles),2);
 corticalCoords(:,1) = reshape(x,[],1);
@@ -123,8 +129,19 @@ title('ON elev')
 colorbar
 axis equal
 axis tight
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 keyboard
+
+
+%% temp
+
+rows = 200:240;
+cols = 0:25;
+
+% offX2D = reshape(
+
 
 %% look at receptive subfields near the fovea
 
@@ -148,6 +165,8 @@ figure
 imagesc(v1Display)
 axis equal
 axis tight
+set(gca,'YTickLabel',[]);
+set(gca,'XTickLabel',[]);
 
 keyboard
 

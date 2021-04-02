@@ -18,12 +18,21 @@ dims = params.dims+1;
 
 th = linspace(0,360,250);
 b = 0.7;
-a = 0.08;
+a = 0.12;
 spiral = logSpiral(th,b,a,[0,0]);
 
 figure
-scatter(spiral.coords(:,1),spiral.coords(:,2))
+color = [0 0 0];
+scatter(spiral.coords(:,1),spiral.coords(:,2),'MarkerFaceColor',color,...
+    'MarkerEdgeColor',color)
 axis equal
+bkdColor = [0.8 0.8 0.8];
+ax=gca;
+ax.FontSize = 14;
+set(ax,'Color',bkdColor)
+xlabel('Azimuth (deg)','fontsize',20)
+ylabel('Elevation (deg)','fontsize',20)
+
 
 cellResponsesOff= cellActivations(offField,spiral,params);
 cellResponsesOff = reshape(cellResponsesOff,dims,dims);
