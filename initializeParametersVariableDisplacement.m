@@ -15,7 +15,7 @@ params.pinwheelSz = 400;
 %cortical model params
 params.onSigmaFraction = 3; %what percent of the sigma the on cell should be displaced
 params.disp = 0; %a constant to be added to the ON subfield displacement
-params.dispNoiseCoeff = 0; %noise added to the on subfield placement
+params.dispNoiseCoeff = 0.3; %noise added to the on subfield placement
 params.angleNoiseCoeff = 0; %noise added to displacement angle
 
 %cell response params

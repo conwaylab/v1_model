@@ -1,3 +1,4 @@
+
 clearvars
 
 load(['lilac4_sim/lh_retino'])
@@ -274,3 +275,229 @@ title('off eccen')
 figure
 histogram(onField.eccenFlat)
 title('on eccen')
+
+%% 
+
+figure
+subplot(1,4,1)
+imagesc(onField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(onField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(onField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(onField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+%% 
+
+% define the spiral
+th = linspace(0,360,250);
+b = 0.7;
+a = 0.08;
+spiral = logSpiral(th,b,a,[0,0]);
+% view the spiral
+% figure
+% scatter(spiral.coords(:,1),spiral.coords(:,2))
+% axis equal
+
+% get response to spiral
+cellResponsesOff = cellActivations(offField,spiral,params);
+cellResponsesOff = reshape(cellResponsesOff,dims,dims);
+
+cellResponsesOn = cellActivations(onField,spiral,params);
+cellResponsesOn = reshape(cellResponsesOn,dims,dims);
+% view the response 
+figure
+imagesc(cellResponsesOn)
+
+%% define the window that looks blank
+y = 165:225;
+x = 140:160;
+% y = 165:225;
+% x = 100:120;
+[rows,cols] = meshgrid(y,x);
+blankInds = sub2ind([401,401],rows,cols);
+% view that window 
+samp = allOnResponsesFlat(:,:,1,iSig);
+samp(inds) = 1;
+figure
+imagesc(samp)
+cellResponsesOn2 = cellResponsesOn;
+cellResponsesOn2(blankInds) = 1;
+
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+
+
+figure
+imagesc(cellResponsesOff)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+
+
+% save those inds so I can load it in cellActivations
+% save('blankInds.mat','blankInds')
+
+%% recreate cellActivations to debug
+
+% for OFF response
+spiralR = spiral.radius;
+spiralTh = spiral.theta;
+stimAngles = spiral.angles;
+
+orientation = offField.orientationFlat;
+eccen = offField.eccenFlat;
+angle = offField.angleFlat;
+sigma = offField.sigmaFlat;
+responseSigma = params.responseSigma;
+
+for i = 1:numel(blankInds)
+    thisInd = blankInds(i);
+    vertexEccen = eccen(thisInd);
+    vertexSigma = sigma(thisInd);
+    vertexAngle = angle(thisInd);
+    vertOrientPref = orientation(thisInd);
+
+    dOff(:,i) = sqrt(vertexEccen^2 + spiralR.^2 - 2*vertexEccen*spiralR.*cosd(spiralTh-vertexAngle));
+
+    [closestOff(i),closestI] = min(dOff(:,i));
+    sigmaResponse = sigmaResponseMagnitude(dOff(closestI,i),vertexSigma);
+    offSigmaResponses(i) = sigmaResponse;
+
+    stimAngle = stimAngles(closestI);
+    orientationResponse = orientationResponseMagnitude(vertOrientPref,...
+        stimAngle);
+    offOrientationResponse(i) = orientationResponse;
+
+    offAct(i) = abs(sigmaResponse*orientationResponse + normrnd(0,responseSigma));
+end
+
+offAct = offAct';
+offSigmaResponses = offSigmaResponses';
+offOrientationResponse = offOrientationResponse';
+
+% for ON response
+eccen = onField.eccenFlat;
+angle = onField.angleFlat;
+sigma = onField.sigmaFlat;
+responseSigma = params.responseSigma;
+
+for i = 1:numel(blankInds)
+    thisInd = blankInds(i);
+    vertexEccen = eccen(thisInd);
+    vertexSigma = sigma(thisInd);
+    vertexAngle = angle(thisInd);
+    vertOrientPref = orientation(thisInd);
+
+    dOn(:,i) = sqrt(vertexEccen^2 + spiralR.^2 - 2*vertexEccen*spiralR.*cosd(spiralTh-vertexAngle));
+
+    [closestOn(i),closestI] = min(dOn(:,i));
+    sigmaResponse = sigmaResponseMagnitude(dOn(closestI,i),vertexSigma);
+    onSigmaResponses(i) = sigmaResponse;
+    
+    stimAngle = stimAngles(closestI);
+    orientationResponse = orientationResponseMagnitude(vertOrientPref,...
+        stimAngle);
+    onOrientationResponse(i) = orientationResponse;
+
+    onAct(i) = abs(sigmaResponse*orientationResponse + normrnd(0,responseSigma));
+end
+
+onAct = onAct';
+onSigmaResponses = onSigmaResponses';
+onOrientationResponse = onOrientationResponse';
+closestOn2D = reshape(closestOn,size(blankInds));
+
+checkSigmaResponse = [offSigmaResponses,onSigmaResponses];
+checkOrientResponse = [offOrientationResponse,onOrientationResponse];
+closestOff2D = reshape(closestOff,size(blankInds));
+
+onAct2D = reshape(onAct,size(blankInds));
+offAct2D = reshape(offAct,size(blankInds));
+
+checkAct = [offAct,onAct];
+checkClosest = [closestOff;closestOn]';
+
+offSigmaResponses2D = reshape(offSigmaResponses,size(blankInds));
+offOrientationResponse2D = reshape(offOrientationResponse,size(blankInds));
+onSigmaResponses2D = reshape(onSigmaResponses,size(blankInds));
+onOrientationResponse2D = reshape(onOrientationResponse,size(blankInds));
+
+figure
+subplot(1,2,1)
+imagesc(offAct2D)
+caxis([0,1.2])
+subplot(1,2,2)
+imagesc(onAct2D)
+caxis([0,1.2])
+
+figure
+subplot(1,2,1)
+imagesc(offSigmaResponses2D)
+caxis([0,1])
+subplot(1,2,2)
+imagesc(onSigmaResponses2D)
+caxis([0,1])
+
+figure
+subplot(1,2,1)
+imagesc(offOrientationResponse2D)
+caxis([0,1])
+subplot(1,2,2)
+imagesc(onOrientationResponse2D)
+caxis([0,1])
+
+%% view subfield centers of blank inds in visual space
+
+blankIndsFlat = reshape(blankInds,[],1);
+onEccen = onField.eccenFlat(blankIndsFlat);
+onAngle = visualToStandardPolar(onField.angleFlat(blankIndsFlat));
+[onX,onY] = pol2cart(deg2rad(onAngle),onEccen);
+
+offEccen = offField.eccenFlat(blankIndsFlat);
+offAngle = visualToStandardPolar(offField.angleFlat(blankIndsFlat));
+[offX,offY] = pol2cart(deg2rad(offAngle),offEccen);
+
+figure 
+scatter(spiral.coords(:,1),spiral.coords(:,2))
+hold on
+scatter(offX,offY)
+
+figure 
+scatter(spiral.coords(:,1),spiral.coords(:,2))
+hold on
+scatter(onX,onY)
+
+

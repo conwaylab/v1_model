@@ -1,7 +1,7 @@
 close all
 clearvars
 
-dims = 400; %dimensions of retinotopy map
+dims = 700; %dimensions of retinotopy map
 %% load the coord structures from step 1
 if ~exist('b_lh')
     load('allVertexCoords.mat');
@@ -55,7 +55,7 @@ eccen2D(notV1) = 0;
 
 angle2D = fillZeroEntries(angle2D);
 eccen2D = fillZeroEntries(eccen2D);
-sigma2D = fillZeroEntries(sigma2D);z
+sigma2D = fillZeroEntries(sigma2D);
 
 %% increase resolution of flat maps by interpolating
 interpLev = (length(angle2D)-1) / dims;

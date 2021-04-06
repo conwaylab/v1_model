@@ -1,0 +1,2324 @@
+
+onSigmaFractions =
+
+    0.1000    1.0000    3.0000    5.0000   10.0000
+
+
+eyeMoveDists =
+
+    0.1000    0.3000    0.5000    0.8000    1.5000
+
+
+pinwheelSzs =
+
+    30   100   400   800
+
+
+ans =
+
+     0
+
+
+iterationName =
+
+    'param_variation1'
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+simulateEyemov
+
+ans =
+
+   400
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+Defining Spirals
+Done with spirals, beginning parfor
+     1
+
+     2
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+
+offCorr =
+
+    0.3168
+
+
+onCorr =
+
+    0.3934
+
+
+offCorr =
+
+    0.7979
+
+
+onCorr =
+
+    0.7866
+
+sfn_figures
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    variableDisplacement: 1
+                    dims: 400
+              pinwheelSz: 400
+         onSigmaFraction: 2
+                    disp: 0
+          dispNoiseCoeff: 0
+         angleNoiseCoeff: 0
+           responseSigma: 0.1000
+                      V1: [1×1 struct]
+                    desc: 'dim400_pinwheel400_onSigmaFrac2_dispNoiseCoeff0_angleNoiseCoeff0_disp0'
+
+{Unable to resolve the name paths.modelDir.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sfn_figures', 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m', 7)" style="font-weight:bold">sfn_figures</a> (<a href="matlab: opentoline('T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m',7,0)">line 7</a>)
+load([paths.modelDir params.desc '.mat'])
+} 
+uiopen('T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m',1)
+sfn_figures
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    variableDisplacement: 1
+                    dims: 400
+              pinwheelSz: 400
+         onSigmaFraction: 2
+                    disp: 0
+          dispNoiseCoeff: 0
+         angleNoiseCoeff: 0
+           responseSigma: 0.1000
+                      V1: [1×1 struct]
+                    desc: 'dim400_pinwheel400_onSigmaFrac2_dispNoiseCoeff0_angleNoiseCoeff0_disp0'
+
+{Unable to resolve the name paths.modelDir.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sfn_figures', 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m', 7)" style="font-weight:bold">sfn_figures</a> (<a href="matlab: opentoline('T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m',7,0)">line 7</a>)
+load([paths.modelDir params.desc '.mat'])
+} 
+sfn_figures
+
+params = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    variableDisplacement: 1
+                    dims: 400
+              pinwheelSz: 400
+         onSigmaFraction: 2
+                    disp: 0
+          dispNoiseCoeff: 0
+         angleNoiseCoeff: 0
+           responseSigma: 0.1000
+                      V1: [1×1 struct]
+                    desc: 'dim400_pinwheel400_onSigmaFrac2_dispNoiseCoeff0_angleNoiseCoeff0_disp0'
+
+
+paths = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    subjectDir: 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model/lilac4_sim'
+      modelDir: 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model/models/Variable_Displacement/'
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
+Unable to read file
+'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\models\Variable_Displacement\dim400_pinwheel400_onSigmaFrac2_dispNoiseCoeff0_angleNoiseCoeff0_disp0.mat'.
+No such file or directory.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sfn_figures', 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m', 7)" style="font-weight:bold">sfn_figures</a> (<a href="matlab: opentoline('T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m',7,0)">line 7</a>)
+load([paths.modelDir params.desc '.mat'])
+} 
+edit initializeParametersVariableDisplacement
+sfn_figures
+
+params = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    variableDisplacement: 1
+                    dims: 400
+              pinwheelSz: 400
+         onSigmaFraction: 3
+                    disp: 0
+          dispNoiseCoeff: 0
+         angleNoiseCoeff: 0
+           responseSigma: 0.1000
+                      V1: [1×1 struct]
+                    desc: 'dim400_pinwheel400_onSigmaFrac3_dispNoiseCoeff0_angleNoiseCoeff0_disp0'
+
+
+paths = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    subjectDir: 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model/lilac4_sim'
+      modelDir: 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model/models/Variable_Displacement/'
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
+Unable to read file
+'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\models\Variable_Displacement\dim400_pinwheel400_onSigmaFrac3_dispNoiseCoeff0_angleNoiseCoeff0_disp0.mat'.
+No such file or directory.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sfn_figures', 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m', 7)" style="font-weight:bold">sfn_figures</a> (<a href="matlab: opentoline('T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\sfn_figures.m',7,0)">line 7</a>)
+load([paths.modelDir params.desc '.mat'])
+} 
+sfn_figures
+
+params = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    variableDisplacement: 1
+                    dims: 400
+              pinwheelSz: 400
+         onSigmaFraction: 3
+                    disp: 0
+          dispNoiseCoeff: 0.3000
+         angleNoiseCoeff: 0
+           responseSigma: 0.1000
+                      V1: [1×1 struct]
+                    desc: 'dim400_pinwheel400_onSigmaFrac3_dispNoiseCoeff0.3_angleNoiseCoeff0_disp0'
+
+
+paths = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    subjectDir: 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model/lilac4_sim'
+      modelDir: 'T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model/models/Variable_Displacement/'
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+simulateActivations
+
+ans =
+
+   400
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+simulateEyemov
+
+ans =
+
+   400
+
+if system_dependent('IsDebugMode')==1, dbcont; end
+Defining Spirals
+Done with spirals, beginning parfor
+     1
+
+     2
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+
+offCorr =
+
+    0.8173
+
+
+onCorr =
+
+    0.7721
+
+Defining Spirals
+Done with spirals, beginning parfor
+     1
+
+     2
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+
+offCorr =
+
+    0.8163
+
+
+onCorr =
+
+    0.7867
+
+offCorr = corr(offResponseFovea(:,1),offResponseFovea(:,2))
+
+offCorr =
+
+    0.8163
+
+onCorr = corr(onResponseFovea(:,1),onResponseFovea(:,2))
+
+onCorr =
+
+    0.7867
+
+isV1 = offField.isV1;
+offCorr = corr(offResponseFovea(isV1,1),offResponseFovea(isV1,2))
+
+offCorr =
+
+    0.7140
+
+onCorr = corr(onResponseFovea(isV1,1),onResponseFovea(isV1,2))
+
+onCorr =
+
+    0.6802
+
+figure
+subplot(1,4,1)
+imagesc(offField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(offField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(offField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(offField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+uiopen('T:\users\singhsr\MEG_Project2018\Light_Dark\simulation\cortical_model\eyeMovCorrelation.m',1)
+eyeMovCorrelation
+
+ans =
+
+   400
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+uiopen('N:\Intermediates_Study\Light_Dark\simulation\v1_model\eyeMovCorrelation.m',1)
+eyeMovCorrelation
+{Error: <a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\eyeMovCorrelation.m',72,25)">File: eyeMovCorrelation.m Line: 72 Column: 25
+</a>Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+} 
+eyeMovCorrelation
+if system_dependent('IsDebugMode')==1, dbquit; end
+allOffResponsesFlat = reshape(allOffResponses(401,401,100,5));
+{Index in position 2 exceeds array bounds (must not exceed 100).
+} 
+allOffResponsesFlat = reshape(allOffResponses,401,401,100,5);
+figure
+imagesc(allOffResponsesFlat(:,:,1,1))
+figure
+subplot(1,4,1)
+imagesc(offField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(offField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(offField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(offField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+figure
+scatter(spirals(1).coords(:,1),spirals(1).coords(:,2))
+max(spirals(1).coords(:,1))
+
+ans =
+
+    6.3886
+
+max(spirals(1).coords(:,2))
+
+ans =
+
+    6.4758
+
+edit cellActivations.m
+maxEccen = max(spirals(1).coords(:,1),[],'all')
+
+maxEccen =
+
+    6.3886
+
+maxEccen = max(spirals(1).coords,[],'all')
+
+maxEccen =
+
+    6.4758
+
+maxEccenMult = 1.1;
+maxEccen = max(spirals(1).coords,[],'all');
+maxEccen*maxEccenMult
+
+ans =
+
+    7.1233
+
+min(offField.eccenFlat)
+
+ans =
+
+    0.0126
+
+isV1 = offField.isV1;
+
+maxEccenMult = 1.1;
+maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
+eccenRange = [0,maxEccen];
+angleRange = [0,180];
+
+eccenInds = find(offField.eccen >= eccenRange(1) && offField.eccen <= eccenRange(2));
+{Operands to the || and && operators must be convertible to logical scalar values.
+} 
+eccenInds1 = find(offField.eccen >= eccenRange(1));
+eccenInds2 = find(offField.eccen <= eccenRange(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle >= angleRange(1));
+angleInds2 = find(offField.angle <= angleRange(2));
+angleInds = intersect(angleInds1,angleInds2);
+
+inds = intersect(eccenInds,angleInds);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+maxEccen
+
+maxEccen =
+
+    7.1233
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1 - onCorrs1;
+compareOnOff = offCorrs1' - onCorrs1';
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(isV1,1,iSig),allOffResponses(isV1,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(isV1,1,iSig),allOnResponses(isV1,i,iSig));
+end
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+size(allOffResponsesFlat)
+
+ans =
+
+   401   401   100     5
+
+iSig = 4;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+iSig = 5;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1' - onCorrs1';
+[~,minI] = min(compareOnOff)
+
+minI =
+
+    64
+
+figure
+subplot(2,2,1)
+imagesc(allOffResponsesFlat(:,:,1,iSig))
+subplot(2,2,2)
+imagesc(allOffResponsesFlat(:,:,minI,iSig))
+subplot(2,2,3)
+imagesc(allOnResponsesFlat(:,:,1,iSig))
+{Unrecognized function or variable 'allOnResponsesFlat'.
+} 
+allOffResponsesFlat = reshape(allOffResponses,401,401,100,5);
+allOnResponsesFlat = reshape(allOnResponses,401,401,100,5);
+figure
+subplot(2,2,1)
+imagesc(allOffResponsesFlat(:,:,1,iSig))
+subplot(2,2,2)
+imagesc(allOffResponsesFlat(:,:,minI,iSig))
+subplot(2,2,3)
+imagesc(allOnResponsesFlat(:,:,1,iSig))
+subplot(2,2,4)
+imagesc(allOnResponsesFlat(:,:,minI,iSig))
+sampOffResponses1 = allOffResponsesFlat(:,:,1,iSig);
+sampOffResponses2 = allOffResponsesFlat(:,:,1,iSig);
+sampOnResponses1 = allOnResponsesFlat(:,:,1,iSig);
+sampOnResponses2 = allOnResponsesFlat(:,:,1,iSig);
+sampOffResponses1 = allOffResponsesFlat(:,:,1,iSig);
+sampOffResponses2 = allOffResponsesFlat(:,:,minI,iSig);
+sampOnResponses1 = allOnResponsesFlat(:,:,1,iSig);
+sampOnResponses2 = allOnResponsesFlat(:,:,minI,iSig);
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+figure
+scatter(sampOffResponses1,sampOffResponses2)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('scatter', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\specgraph\scatter.m', 78)" style="font-weight:bold">scatter</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\specgraph\scatter.m',78,0)">line 78</a>)
+X and Y must be vectors of the same length.
+} 
+figure
+scatter(sampOffResponses1(inds),sampOffResponses2(inds))
+
+figure
+scatter(sampOnResponses1(inds),sampOnResponses2(inds))
+corr(sampOffResponses1(inds),sampOffResponses2(inds))
+
+ans =
+
+    0.5550
+
+corr(sampOnResponses1(inds),sampOnResponses2(inds))
+
+ans =
+
+    0.5884
+
+figure
+scatter(sampOffResponses1(inds),sampOffResponses2(inds))
+
+figure
+scatter(sampOnResponses1(inds),sampOnResponses2(inds))
+figure
+scatter(sampOffResponses1(inds),sampOffResponses2(inds))
+title('OFF')
+figure
+scatter(sampOnResponses1(inds),sampOnResponses2(inds))
+title('ON')
+edit imresize
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+maxEccen
+
+maxEccen =
+
+    7.1233
+
+inds = intersect(eccenInds,angleInds);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+maxEccenMult = 1.1;
+maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
+maxEccen = 3;
+eccenRange = [0,maxEccen];
+angleRange = [0,180];
+
+eccenInds1 = find(offField.eccen >= eccenRange(1));
+eccenInds2 = find(offField.eccen <= eccenRange(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle >= angleRange(1));
+angleInds2 = find(offField.angle <= angleRange(2));
+angleInds = intersect(angleInds1,angleInds2);
+
+inds = intersect(eccenInds,angleInds);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+maxEccenMult = 1.1;
+maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
+maxEccen = 3;
+eccenRange = [0,maxEccen];
+angleRange = [80,120];
+
+eccenInds1 = find(offField.eccen >= eccenRange(1));
+eccenInds2 = find(offField.eccen <= eccenRange(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle >= angleRange(1));
+angleInds2 = find(offField.angle <= angleRange(2));
+angleInds = intersect(angleInds1,angleInds2);
+
+inds = intersect(eccenInds,angleInds);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+maxEccenMult = 1.1;
+maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
+eccenRange = [0,maxEccen];
+angleRange = [0,180];
+
+eccenInds1 = find(offField.eccen >= eccenRange(1));
+eccenInds2 = find(offField.eccen <= eccenRange(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle >= angleRange(1));
+angleInds2 = find(offField.angle <= angleRange(2));
+angleInds = intersect(angleInds1,angleInds2);
+
+inds = intersect(eccenInds,angleInds);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1' - onCorrs1';
+[~,minI] = min(compareOnOff);
+
+sampOffResponses1 = allOffResponsesFlat(:,:,1,iSig);
+sampOffResponses2 = allOffResponsesFlat(:,:,minI,iSig);
+sampOnResponses1 = allOnResponsesFlat(:,:,1,iSig);
+sampOnResponses2 = allOnResponsesFlat(:,:,minI,iSig);
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+rows = 150:175;
+cols = 50:75;
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+y = 150:175;
+x = 50:75;
+[rows,cols] = meshgrid(x,y)
+
+rows =
+
+  Columns 1 through 21
+
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+    50    51    52    53    54    55    56    57    58    59    60    61    62    63    64    65    66    67    68    69    70
+
+  Columns 22 through 26
+
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+    71    72    73    74    75
+
+
+cols =
+
+  Columns 1 through 21
+
+   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150   150
+   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151   151
+   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152   152
+   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153   153
+   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154   154
+   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155   155
+   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156   156
+   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157   157
+   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158   158
+   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159   159
+   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160   160
+   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161   161
+   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162   162
+   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163   163
+   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164   164
+   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165   165
+   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166   166
+   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167   167
+   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168   168
+   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169   169
+   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170   170
+   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171   171
+   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172   172
+   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173   173
+   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174   174
+   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175   175
+
+  Columns 22 through 26
+
+   150   150   150   150   150
+   151   151   151   151   151
+   152   152   152   152   152
+   153   153   153   153   153
+   154   154   154   154   154
+   155   155   155   155   155
+   156   156   156   156   156
+   157   157   157   157   157
+   158   158   158   158   158
+   159   159   159   159   159
+   160   160   160   160   160
+   161   161   161   161   161
+   162   162   162   162   162
+   163   163   163   163   163
+   164   164   164   164   164
+   165   165   165   165   165
+   166   166   166   166   166
+   167   167   167   167   167
+   168   168   168   168   168
+   169   169   169   169   169
+   170   170   170   170   170
+   171   171   171   171   171
+   172   172   172   172   172
+   173   173   173   173   173
+   174   174   174   174   174
+   175   175   175   175   175
+
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+x = 150:175;
+y = 50:75;
+[rows,cols] = meshgrid(x,y)
+
+rows =
+
+  Columns 1 through 21
+
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+   150   151   152   153   154   155   156   157   158   159   160   161   162   163   164   165   166   167   168   169   170
+
+  Columns 22 through 26
+
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+   171   172   173   174   175
+
+
+cols =
+
+  Columns 1 through 21
+
+    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50    50
+    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51    51
+    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52    52
+    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53    53
+    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54    54
+    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55    55
+    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56    56
+    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57    57
+    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58    58
+    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59    59
+    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60    60
+    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61    61
+    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62    62
+    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63    63
+    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64    64
+    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65    65
+    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66    66
+    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67    67
+    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68    68
+    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69    69
+    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70    70
+    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71    71
+    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72    72
+    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73    73
+    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74    74
+    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75    75
+
+  Columns 22 through 26
+
+    50    50    50    50    50
+    51    51    51    51    51
+    52    52    52    52    52
+    53    53    53    53    53
+    54    54    54    54    54
+    55    55    55    55    55
+    56    56    56    56    56
+    57    57    57    57    57
+    58    58    58    58    58
+    59    59    59    59    59
+    60    60    60    60    60
+    61    61    61    61    61
+    62    62    62    62    62
+    63    63    63    63    63
+    64    64    64    64    64
+    65    65    65    65    65
+    66    66    66    66    66
+    67    67    67    67    67
+    68    68    68    68    68
+    69    69    69    69    69
+    70    70    70    70    70
+    71    71    71    71    71
+    72    72    72    72    72
+    73    73    73    73    73
+    74    74    74    74    74
+    75    75    75    75    75
+
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+inds = intersect(eccenInds,angleInds);
+y = 150:175;
+x = 50:75;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1' - onCorrs1';
+[~,minI] = min(compareOnOff);
+
+sampOffResponses1 = allOffResponsesFlat(:,:,1,iSig);
+sampOffResponses2 = allOffResponsesFlat(:,:,minI,iSig);
+sampOnResponses1 = allOnResponsesFlat(:,:,1,iSig);
+sampOnResponses2 = allOnResponsesFlat(:,:,minI,iSig);
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponse(inds,1,iSig);
+{Unrecognized function or variable 'allOnResponse'.
+} 
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(inds,1,iSig);
+sampOnResponseFlat2 = allOnResponses(inds,minI,iSig);
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(inds,1,iSig);
+sampOnResponseFlat2 = allOnResponses(inds,minI,iSig);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+{Unrecognized function or variable 'sampOnResponsesFlat2'.
+} 
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(inds,1,iSig);
+sampOnResponseFlat2 = allOnResponses(inds,minI,iSig);
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+{Unrecognized function or variable 'sampOnResponsesFlat2'.
+} 
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(inds,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(inds,minI,iSig);
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+corr(sampOffResponsesFlat1(inds),sampOffResponsesFlat2(inds))
+{Index exceeds the number of array elements (676).
+} 
+corr(sampOffResponsesFlat1,sampOffResponsesFlat2)
+
+ans =
+
+    0.2351
+
+corr(sampOnResponsesFlat1,sampOnResponsesFlat2)
+
+ans =
+
+    0.4636
+
+offCorrs1(minI)
+
+ans =
+
+    0.2351
+
+inds = intersect(eccenInds,angleInds);
+y = 150:250;
+x = 100:200;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1' - onCorrs1';
+[~,minI] = min(compareOnOff);
+
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(inds,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(inds,minI,iSig);
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+inds = intersect(eccenInds,angleInds);
+y = 150:250;
+x = 100:200;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+size(rows,1)
+
+ans =
+
+   101
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+samp = allOffResponsesFlat(:,:,1,iSig);
+samp(inds) = 1;
+figure
+imagesc(samp)
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1')
+subplot(2,2,2)
+imagesc(sampOffResponses2')
+subplot(2,2,3)
+imagesc(sampOnResponses1')
+subplot(2,2,4)
+imagesc(sampOnResponses2')
+inds = intersect(eccenInds,angleInds);
+y = 150:225;
+x = 50:125;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+y = 125:200;
+x = 50:125;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+y = 130:205;
+x = 50:125;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+y = 130:205;
+x = 50:125;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+samp = allOnResponsesFlat(:,:,1,iSig);
+samp(inds) = 1;
+
+figure
+imagesc(samp)
+Error: <a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\eyeMovCorrelation.m',143,11)">File: eyeMovCorrelation.m Line: 143 Column: 11
+</a>Invalid expression. Check for missing or extra characters.
+
+figure
+imagesc(samp)
+inds = reshape(inds,1,[]);
+figure
+imagesc(samp)
+blankInds = inds;
+
+maxEccen =
+
+    4.6000
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1' - onCorrs1';
+sum(compareOnOff >0) / numel(compareOnOff)
+
+ans =
+
+    0.5900
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+[subX,subY] = ind2sub([401,401],inds);
+[subY,subX] = ind2sub([401,401],inds);
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sub2ind', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\elmat\sub2ind.m', 51)" style="font-weight:bold">sub2ind</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\elmat\sub2ind.m',51,0)">line 51</a>)
+The subscript vectors must all be of the same size.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eyeMovCorrelation', 'N:\Intermediates_Study\Light_Dark\simulation\v1_model\eyeMovCorrelation.m', 97)" style="font-weight:bold">eyeMovCorrelation</a> (<a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\eyeMovCorrelation.m',97,0)">line 97</a>)
+inds = sub2ind([401,401],subY,subX);
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+samp = allOnResponsesFlat(:,:,1,iSig);
+samp(inds) = 1;
+
+figure
+imagesc(samp)
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+samp = allOnResponsesFlat(:,:,1,iSig);
+figure
+imagesc(samp)
+sampOffResponsesFlat1 = allOffResponses(inds,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(inds,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(inds,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(inds,minI,iSig);
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reshape')" style="font-weight:bold">reshape</a>
+To RESHAPE the number of elements must not change.
+} 
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reshape')" style="font-weight:bold">reshape</a>
+To RESHAPE the number of elements must not change.
+} 
+rows = rand(401,401);
+cols = rand(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1')
+subplot(2,2,2)
+imagesc(sampOffResponses2')
+subplot(2,2,3)
+imagesc(sampOnResponses1')
+subplot(2,2,4)
+imagesc(sampOnResponses2')
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+Error: <a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\eyeMovCorrelation.m',98,39)">File: eyeMovCorrelation.m Line: 98 Column: 39
+</a>Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or other syntax error. To
+construct matrices, use brackets instead of parentheses.
+
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+compareOnOff = offCorrs1' - onCorrs1';
+sum(compareOnOff > 0) / numel(compareOnOff)
+
+ans =
+
+    0.8300
+
+minI
+
+minI =
+
+    22
+
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+figure
+scatter(spirals(22).coords(:,1),spirals(22).coords(;,2))
+ scatter(spirals(22).coords(:,1),spirals(22).coords(;,2))
+                                                    
+{Error: Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+} 
+figure
+scatter(spirals(22).coords(:,1),spirals(22).coords(:,2))
+iSig = 1;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+onAngles = visualToStandardPolar(onField.angleFlat);
+offAngles = visualToStandardPolar(offField.angleFlat);
+
+[offX,offY] = pol2cart(deg2rad(offAngles),offField.eccenFlat);
+[onX,onY] = pol2cart(deg2rad(onAngles),onField.eccenFlat);
+
+figure
+scatter(offX,offY)
+hold on
+scatter(onX,onY)
+[params,paths] = initializeParametersVariableDisplacement();
+% [params,paths] = initializeParameters();
+
+[offField,onField] = makeFlatMaps(params,paths);
+onAngles = visualToStandardPolar(onField.angleFlat);
+offAngles = visualToStandardPolar(offField.angleFlat);
+
+[offX,offY] = pol2cart(deg2rad(offAngles),offField.eccenFlat);
+[onX,onY] = pol2cart(deg2rad(onAngles),onField.eccenFlat);
+
+figure
+scatter(offX,offY)
+hold on
+scatter(onX,onY)
+edit makeFlatMaps
+edit createOnOffModel
+edit placeOnSubfieldVariableDisplacement
+[params,paths] = initializeParametersVariableDisplacement();
+% [params,paths] = initializeParameters();
+
+[offField,onField] = makeFlatMaps(params,paths);
+onAngles = visualToStandardPolar(onField.angleFlat);
+offAngles = visualToStandardPolar(offField.angleFlat);
+
+[offX,offY] = pol2cart(deg2rad(offAngles),offField.eccenFlat);
+[onX,onY] = pol2cart(deg2rad(onAngles),onField.eccenFlat);
+
+figure
+scatter(offX,offY)
+hold on
+scatter(onX,onY)
+[params,paths] = initializeParametersVariableDisplacement();
+% [params,paths] = initializeParameters();
+
+dims = params.dims+1;
+[offField,onField] = makeFlatMaps(params,paths);
+
+simResponseDir = fullfile(pwd,'Response_Eye_Movements');
+responseFileName = 'onOffResponses1';
+responseFilePath = fullfile(simResponseDir,responseFileName);
+loadEyeMovs = 1;
+loadResponses = 1;
+
+thoo =
+
+     1
+
+if system_dependent('IsDebugMode')==1, dbquit; end
+iSig = 1;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+compareOnOff = offCorrs1' - onCorrs1';
+sum(compareOnOff > 0) / numel(compareOnOff)
+
+ans =
+
+    0.7100
+
+[~,minI] = min(compareOnOff);
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+rows = randi(401,401);
+cols = randi(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+figure
+imagesc(samp)
+minI
+
+minI =
+
+    16
+
+compareOnOff(minI)
+
+ans =
+
+   -0.0402
+
+checkCorrs = [offCorrs1',onCorrs1'];
+save('blankInds.mat','blankInds')
+figure
+imagesc(blankInds)
+samp = allOnResponsesFlat(:,:,1,iSig);
+samp(blankInds) = 1;
+
+figure
+imagesc(samp)
+max(blankInds)
+
+ans =
+
+       65964
+
+i = 1;
+ind = blankInds(i);
+eccen = onField.eccen(ind)
+
+eccen =
+
+    6.5380
+
+angle = onField.angle(ind)
+
+angle =
+
+  139.1037
+
+figure
+subplot(1,4,1)
+imagesc(onField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(onField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(onField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(onField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+edit cellActivations.m
+iSig = 3;
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+rows = randi(401,401);
+cols = randi(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+iSig = 1;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+rows = randi(401,401);
+cols = randi(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+iSig = 2;
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+rows = randi(401,401);
+cols = randi(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+iSig = 4;
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+rows = randi(401,401);
+cols = randi(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+figure
+subplot(1,4,1)
+imagesc(onField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(onField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(onField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(onField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+params.onSigmaFraction
+
+ans =
+
+     2
+
+[offField,onField] = makeFlatMaps(params,paths);
+if system_dependent('IsDebugMode')==1, dbquit; end
+params.onSigmaFraction = 3;
+if system_dependent('IsDebugMode')==1, dbquit; end
+close all
+if system_dependent('IsDebugMode')==1, dbquit; end
+cellResponsesOn2 = cellResponsesOn;
+cellResponsesOn2(blankInds) = 1;
+figure
+imagesc(cellResponsesOn2)
+figure
+imagesc(samp)
+cellResponsesOn2 = cellResponsesOn;
+cellResponsesOn2(blankInds) = 1;
+figure
+imagesc(cellResponsesOn2)
+[subRow,subCol] = ind2sub([401,401],blankInds);
+subRow(end)
+
+ans =
+
+   200
+
+y = 150:200;
+x = 130:165;
+[rows,cols] = meshgrid(y,x);
+inds = sub2ind([401,401],rows,cols);
+v1Display = zeros(size(offField.eccen));
+v1Display(isV1) = 0.5;
+v1Display(inds) = 1;
+figure
+imagesc(v1Display)
+Error: <a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\scratch.m',1,1)">File: scratch.m Line: 1 Column: 1
+</a>Invalid text character. Check for unsupported symbol, invisible character, or pasting of non-ASCII characters.
+
+th = linspace(0,360,250);
+b = 0.7;
+a = 0.08;
+spiral = logSpiral(th,b,a,[0,0]);
+
+figure
+scatter(spiral.coords(:,1),spiral.coords(:,2))
+axis equal
+figure
+imagesc(cellResponsesOn)
+y = 165:195;
+x = 140:160;
+[rows,cols] = meshgrid(y,x);
+blankInds = sub2ind([401,401],rows,cols);
+% view that window 
+samp = allOnResponsesFlat(:,:,1,iSig);
+samp(inds) = 1;
+figure
+imagesc(samp)
+cellResponsesOn2 = cellResponsesOn;
+cellResponsesOn2(blankInds) = 1;
+figure
+imagesc(cellResponsesOn2)
+i = 1;
+ind = blankInds(i);
+eccen = onField.eccen(ind)
+
+eccen =
+
+    7.1398
+
+angle = onField.angle(ind)
+
+angle =
+
+  112.4938
+
+eccenOff = offField.eccen(ind)
+
+eccenOff =
+
+    5.8171
+
+save('blankInds.mat','blankInds')
+blankInds(2)
+
+ans =
+
+       56305
+
+check = blankInds(2);
+check
+
+check =
+
+       56305
+
+ismember(check,blankInds)
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+cellResponsesOn = cellActivations(onField,spiral,params);
+<a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\cellActivations.m',20,1)">20  </a>        thoo = 2;
+if system_dependent('IsDebugMode')==1, dbstep; end
+vertexEccen
+
+vertexEccen =
+
+    7.1398
+
+vertexAngle
+
+vertexAngle =
+
+  116.2825
+
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+cellResponsesOff = cellActivations(offField,spiral,params);
+<a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\cellActivations.m',20,1)">20  </a>        thoo = 2;
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+checkAct = [offAct,onAct];
+onAct2D = reshape(onAct,size(blankInds));
+offAct2D = reshape(offAct,size(blankInds));
+
+figure
+subplot(1,2,1)
+imagesc(offAct2D)
+subplot(1,2,2)
+imagesc(onAct2D)
+figure
+subplot(1,2,1)
+imagesc(offAct2D)
+caxis([0,1.2])
+subplot(1,2,2)
+imagesc(onAct2D)
+caxis([0,1.2])
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(2)],[y(1),y(1)])
+line([x(1),x(2)],[y(2),y(2)])
+line([x(1),x(1)],[y(1),y(2)])
+line([x(2),x(2)],[y(1),y(2)])
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(end)],[y(1),y(1)])
+line([x(1),x(end)],[y(end),y(end)])
+line([x(1),x(1)],[y(1),y(end)])
+line([x(end),x(end)],[y(1),y(end)])
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+
+
+figure
+imagesc(cellResponsesOff)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+
+
+figure
+imagesc(cellResponsesOff)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+figure
+imagesc(cellResponsesOff)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+cellResponsesOff = reshape(cellResponsesOff,dims,dims);
+figure
+imagesc(cellResponsesOn)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+
+
+figure
+imagesc(cellResponsesOff)
+hold on
+line([x(1),x(end)],[y(1),y(1)],'Color',[0 0 0])
+line([x(1),x(end)],[y(end),y(end)],'Color',[0 0 0])
+line([x(1),x(1)],[y(1),y(end)],'Color',[0 0 0])
+line([x(end),x(end)],[y(1),y(end)],'Color',[0 0 0])
+save('blankInds.mat','blankInds')
+Index in position 2 exceeds array bounds (must not exceed 1).
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('scratch', 'N:\Intermediates_Study\Light_Dark\simulation\v1_model\scratch.m', 394)" style="font-weight:bold">scratch</a> (<a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\scratch.m',394,0)">line 394</a>)
+    sigmaResponse = sigmaResponseMagnitude(d(:,closestI),vertexSigma);
+
+Index in position 2 exceeds array bounds (must not exceed 1).
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('scratch', 'N:\Intermediates_Study\Light_Dark\simulation\v1_model\scratch.m', 394)" style="font-weight:bold">scratch</a> (<a href="matlab: opentoline('N:\Intermediates_Study\Light_Dark\simulation\v1_model\scratch.m',394,0)">line 394</a>)
+    sigmaResponse = sigmaResponseMagnitude(dOff(:,closestI),vertexSigma);
+
+dOffMax = max(dOff);
+dOnMax = max(dOn)
+
+dOnMax =
+
+  Columns 1 through 13
+
+   13.3433   13.3317   13.3386   13.2965   13.0405   12.5398   13.9510   14.6128   12.3338   11.9305   12.0576   12.6392   13.6216
+
+  Columns 14 through 26
+
+   14.5171   14.7813   14.8868   14.9736   15.0693   15.2313   15.4124   15.5261   13.1656   13.2312   13.3208   13.4100   13.4471
+
+  Columns 27 through 39
+
+   13.5283   13.8037   14.3349   14.6032   14.3800   14.0774   13.5086   14.5552   14.8443   14.9654   15.0039   15.0230   15.0816
+
+  Columns 40 through 52
+
+   15.1875   15.3207   15.4673   12.9735   13.1691   13.3681   13.5479   13.7230   13.9604   14.2188   14.3975   14.5967   14.6555
+
+  Columns 53 through 65
+
+   14.5489   14.8461   14.9465   15.0008   15.0623   15.0954   15.0615   15.0606   14.9970   15.0013   15.0624   12.8265   13.2205
+
+  Columns 66 through 78
+
+   13.5708   13.7990   13.9877   14.2251   14.4088   14.4541   14.4801   14.4594   14.0306   14.2329   14.9008   15.0181   15.0902
+
+  Columns 79 through 91
+
+   15.1183   15.0919   15.0337   14.8363   14.7354   14.6752   13.0936   13.6398   13.9644   14.1170   14.2387   14.3393   14.4244
+
+  Columns 92 through 104
+
+   14.4372   14.5015   14.5029   14.2252   12.8732   14.8735   15.0468   15.0813   15.0587   15.0864   15.0017   14.7965   14.6658
+
+  Columns 105 through 117
+
+   14.5084   14.1588   14.3229   14.3578   14.3394   14.3360   14.3495   14.3955   14.4213   14.5107   14.5645   14.4823   13.5255
+
+  Columns 118 through 130
+
+   15.0121   14.9821   15.0075   15.0691   15.0713   15.0274   14.8960   14.7963   14.5825   13.8576   14.0615   14.3240   14.3391
+
+  Columns 131 through 143
+
+   14.2313   14.2031   14.2806   14.4000   14.5263   14.6425   14.7353   14.9439   14.4203   14.7848   14.9205   15.0383   15.0988
+
+  Columns 144 through 156
+
+   15.1203   15.0388   14.9350   14.6155   14.0380   14.1591   14.3312   13.9630   13.8932   14.0165   14.2006   14.3819   14.5637
+
+  Columns 157 through 169
+
+   14.7926   14.8415   12.4304   13.6436   14.3195   14.7249   15.0197   15.1711   15.2199   15.1197   14.9071   14.2587   14.1499
+
+  Columns 170 through 182
+
+   14.1734   13.1281   12.3864   12.9524   13.6429   14.0682   14.3666   14.6649   14.7533   14.2588   13.0031   13.5755   14.1426
+
+  Columns 183 through 195
+
+   14.7514   15.1876   15.3695   15.3825   15.0598   14.3158   14.7535   14.0031   13.8366   12.4421   13.7777   12.0934   13.2587
+
+  Columns 196 through 208
+
+   14.0068   14.4401   14.7634   14.4783   12.4755   13.1791   13.6582   14.3756   15.1847   15.3271   15.1934   15.4575   13.0490
+
+  Columns 209 through 221
+
+   14.9260   15.2722   13.8642   13.7587   12.3932   14.1491   14.1855   12.6106   14.0708   14.6064   14.6304   14.1712   12.6327
+
+  Columns 222 through 234
+
+   13.1345   13.5722   14.6746   15.2781   15.0946   13.4632   15.4808   15.5083   15.3673   15.2169   13.8287   13.8143   13.1363
+
+  Columns 235 through 247
+
+   14.4441   14.3451   13.9427   14.0836   14.2600   14.1103   12.4689   12.6772   13.0022   13.3736   15.1983   15.1529   14.9328
+
+  Columns 248 through 260
+
+   13.4888   15.4980   15.5157   15.3140   14.6862   13.6624   13.9208   14.3764   12.6098   13.0255   12.9427   12.9299   12.8990
+
+  Columns 261 through 273
+
+   12.8419   12.8584   12.8355   12.9719   13.1145   15.2755   15.0889   14.7786   13.8105   15.4478   15.5157   15.2197   14.2585
+
+  Columns 274 through 286
+
+   12.5160   14.3584   14.1055   13.9031   12.2680   12.6371   12.9912   13.2243   13.2385   13.1451   12.9666   12.9199   12.8091
+
+  Columns 287 through 299
+
+   13.8100   14.7600   13.2931   14.7234   15.4505   15.5834   15.4643   14.7205   14.1862   13.9999   14.2891   14.2940   14.1176
+
+  Columns 300 through 312
+
+   12.2289   12.8431   13.3376   13.5245   13.4452   13.1670   12.9329   14.3773   15.1900   14.0838   14.4741   15.1009   15.4641
+
+  Columns 313 through 325
+
+   15.6050   15.5561   14.0198   13.1885   14.2037   14.4604   14.5085   14.4444   14.1955   12.4890   13.2601   13.6494   13.6012
+
+  Columns 326 through 338
+
+   13.2105   12.7107   14.8619   15.2755   14.9290   15.0314   15.3051   15.5158   15.6125   15.5510   13.2659   12.2511   14.4351
+
+  Columns 339 through 351
+
+   14.5836   14.6228   14.6428   14.5673   14.2770   13.0307   13.7709   13.6615   12.8542   14.8994   15.1934   15.1234   15.0541
+
+  Columns 352 through 364
+
+   15.1800   15.3758   15.5497   15.6189   15.5332   14.8353   13.7203   14.5114   14.5592   14.5847   14.6538   14.6986   14.7932
+
+  Columns 365 through 377
+
+   12.5710   14.6170   14.6982   15.0467   14.9030   14.9445   14.9105   15.0527   15.2248   15.3970   15.5532   15.6380   15.5811
+
+  Columns 378 through 390
+
+   14.7839   12.5898   14.4662   14.4948   14.5008   14.5022   14.4491   14.0301   14.2416   14.9018   14.7486   12.8735   13.9236
+
+  Columns 391 through 403
+
+   14.4787   14.7396   15.0195   15.2154   15.3804   15.5344   15.6458   15.6826   15.0221   14.3917   12.8989   13.7747   13.9942
+
+  Columns 404 through 416
+
+   14.0449   13.8845   13.3269   14.2231   14.7562   14.6813   14.4017   13.0750   13.8259   14.4034   14.8765   15.1197   15.2981
+
+  Columns 417 through 429
+
+   15.4581   15.5989   15.7386   15.4789   14.3355   14.1003   12.4178   13.0802   13.3797   13.2483   12.7081   14.4350   14.7713
+
+  Columns 430 through 442
+
+   14.7767   14.7131   14.4399   13.0917   14.0225   14.7154   14.9734   15.1541   15.3000   15.4498   15.6070   15.7042   14.3056
+
+  Columns 443 through 455
+
+   14.2882   14.1841   14.0469   13.9144   14.0699   14.3359   14.6307   14.8100   14.8491   14.9013   14.9053   14.7823   12.9969
+
+  Columns 456 through 468
+
+   14.4059   14.7821   15.0315   15.1731   15.3218   15.4618   15.4753   14.2892   14.3472   14.4018   14.4912   14.5617   14.6630
+
+  Columns 469 through 481
+
+   14.7140   14.7784   14.8512   14.8953   14.9980   15.0944   15.2339   15.3349   14.8187   14.0753   14.7111   14.8590   14.9547
+
+  Columns 482 through 494
+
+   14.8484   15.2978   14.2642   14.3596   14.4723   14.6101   14.7257   14.8319   14.8458   14.8512   14.8717   14.9042   15.0172
+
+  Columns 495 through 507
+
+   15.2381   15.3361   15.3877   15.4899   15.1587   13.4513   13.6223   14.7232   15.5527   15.8328   14.2087   14.3059   14.4463
+
+  Columns 508 through 520
+
+   14.6091   14.7372   14.8597   14.8680   14.8722   14.8785   14.9032   15.0481   15.2742   15.3448   15.3968   15.4990   15.5430
+
+  Columns 521 through 533
+
+   15.4186   15.4641   15.6619   15.7764   15.8293   14.0245   14.1025   14.3063   14.5421   14.6868   14.7979   14.8322   14.8491
+
+  Columns 534 through 546
+
+   14.8549   14.8814   15.0369   15.3059   15.3914   15.4373   15.5173   15.5850   15.5397   15.5707   15.6978   15.7770   15.8344
+
+  Columns 547 through 559
+
+   12.3164   12.5795   13.8002   14.3126   14.5703   14.6973   14.7392   14.7286   14.6710   14.6425   14.8977   15.2732   15.4443
+
+  Columns 560 through 572
+
+   15.4854   15.5392   15.6041   15.5589   15.5353   15.6514   15.7490   15.8229   13.4074   13.6893   13.3806   13.7529   14.3508
+
+  Columns 573 through 585
+
+   14.5134   14.5140   14.3780   14.1750   12.8090   14.4016   15.1012   15.4652   15.5526   15.5727   15.6186   15.5628   15.4316
+
+  Columns 586 through 598
+
+   15.5301   15.6940   15.8198   13.9833   14.2806   14.2313   13.7708   13.8286   14.2314   14.1706   12.7596   13.2475   13.4740
+
+  Columns 599 through 611
+
+   13.0613   14.9690   15.4582   15.5897   15.5742   15.6025   15.6429   15.4447   15.4295   15.6368   15.8459   14.2620   14.4918
+
+  Columns 612 through 624
+
+   14.5461   14.5360   13.7749   12.6633   12.9247   13.4923   13.8006   13.8590   13.2696   14.9373   15.4573   15.5841   15.5670
+
+  Columns 625 through 637
+
+   15.5616   15.6140   15.6989   15.6572   15.8224   15.8083   14.3790   14.5486   14.6261   14.7074   14.6052   13.8460   13.5577
+
+  Columns 638 through 650
+
+   13.8284   13.9336   13.8182   14.1755   15.2089   15.5046   15.5065   15.4820   15.4581   15.4544   15.1850   14.6707   14.4709
+
+  Columns 651 through 663
+
+   15.1690   14.4113   14.5467   14.6391   14.7388   14.7577   14.3962   13.8048   13.8015   13.7479   13.3654   14.9965   15.3667
+
+  Columns 664 through 676
+
+   15.2956   15.2656   15.3048   15.3293   15.3458   15.0307   14.6577   14.4237   14.9616   14.3924   14.5072   14.6198   14.7345
+
+  Columns 677 through 689
+
+   14.7835   14.4829   13.5601   13.1600   12.8765   14.5833   15.2259   14.9090   14.8259   14.8592   15.0161   15.1661   15.2970
+
+  Columns 690 through 702
+
+   15.0985   14.8997   14.6912   15.0436   14.4786   14.5951   14.6842   14.7660   14.7496   14.1996   13.0847   13.9758   14.1722
+
+  Columns 703 through 715
+
+   14.6849   15.0741   14.4590   14.3735   14.4551   14.6933   15.0021   15.2694   15.1945   15.1217   14.9593   15.1734   14.5592
+
+  Columns 716 through 728
+
+   14.6856   14.7544   14.8042   14.7042   14.0276   13.1488   13.8813   14.0466   14.3837   15.3855   14.5939   14.3921   14.4225
+
+  Columns 729 through 741
+
+   14.5536   14.8440   15.1522   15.1901   15.2236   15.1070   15.2248   14.6265   14.7650   14.8165   14.8397   14.6687   14.0509
+
+  Columns 742 through 754
+
+   13.4365   13.0569   12.9635   14.1313   14.8174   15.5126   15.3179   15.0496   14.7773   14.7547   14.9248   15.0600   15.1852
+
+  Columns 755 through 767
+
+   15.0652   15.0767   14.6769   14.8303   14.8662   14.8526   14.6256   14.1999   13.8532   13.4901   13.2425   14.1413   14.7037
+
+  Columns 768 through 780
+
+   15.0860   15.4343   15.6986   15.2753   14.5235   14.3723   14.7387   15.0503   14.8817   14.6468   14.7105   14.8683   14.9074
+
+  Columns 781 through 793
+
+   14.8494   14.5936   14.3364   14.1705   13.8745   13.4534   14.2129   14.7266   14.9562   15.1206   15.4271   15.5707   13.6290
+
+  Columns 794 through 806
+
+   14.3234   13.5843   13.8158   14.4682   14.9456   14.7888   14.9320   14.9068   14.7814   14.5754   14.4636   14.4223   14.2408
+
+  Columns 807 through 819
+
+   13.6908   14.4181   14.8259   15.0132   15.0706   15.2973   15.4852   14.4804   14.7582   14.8625   15.1421   15.5306   15.7550
+
+  Columns 820 through 832
+
+   14.8552   14.9759   14.8984   14.7878   14.6406   14.6066   14.6455   14.6540   14.2501   14.7675   15.0573   15.1049   15.0803
+
+  Columns 833 through 845
+
+   15.2546   14.2702   14.8493   14.9930   15.2612   15.6155   15.8481   15.9592   14.9081   15.0171   14.9511   14.9206   14.8564
+
+  Columns 846 through 858
+
+   14.8868   15.0337   15.1165   14.1966   14.2935   15.3089   15.4611   15.3983   15.5825   14.6371   15.0547   15.1266   15.4164
+
+  Columns 859 through 871
+
+   15.6777   15.9166   16.0377   14.5910   14.8632   14.9440   14.9429   14.7840   13.9414   13.2261   13.3525   13.3716   13.5063
+
+  Columns 872 through 884
+
+   13.8591   14.3971   14.9806   14.4785   15.0041   15.3783   15.3579   15.5088   15.6831   15.9757   16.0044   14.3276   14.4732
+
+  Columns 885 through 897
+
+   14.4578   14.2178   13.5483   13.5597   13.9467   13.8722   13.7191   13.5433   13.6005   13.7900   14.3642   14.6630   15.2078
+
+  Columns 898 through 910
+
+   15.6881   15.7007   15.7413   15.8497   15.9802   15.7045   14.4352   14.3786   14.1743   13.8990   12.7926   13.6411   14.0689
+
+  Columns 911 through 923
+
+   14.1287   14.0710   13.8856   13.9058   14.0847   14.8572   15.5495   15.2214   15.6177   15.7823   15.7919   15.8728   15.9264
+
+  Columns 924 through 936
+
+   15.5611   14.5895   14.6402   14.3404   13.9106   13.4779   13.4551   14.0142   14.2718   14.3892   14.3933   14.5119   14.8588
+
+  Columns 937 through 949
+
+   15.4955   15.5064   15.0713   13.8691   15.6008   15.7897   15.8682   15.9347   15.7604   14.4445   14.6558   14.6562   14.0240
+
+  Columns 950 through 962
+
+   13.5223   13.4054   14.0892   14.5704   14.8688   15.1581   15.3916   15.2936   15.1200   15.0725   15.0259   14.7759   15.3789
+
+  Columns 963 through 975
+
+   15.7652   15.8246   15.9583   15.9719   13.8705   13.9173   13.6727   13.8734   13.9186   14.2234   14.8907   15.1945   15.0390
+
+  Columns 976 through 988
+
+   14.1841   13.2290   13.6061   14.0128   14.6670   15.2784   15.6596   14.5158   15.3817   15.6805   15.8993   16.0245   13.0450
+
+  Columns 989 through 1001
+
+   13.4232   14.1832   14.6111   14.7554   14.8089   14.3035   13.9537   13.5897   13.6067   14.0793   14.3785   14.0968   14.1886
+
+  Columns 1002 through 1014
+
+   15.6219   15.5156   14.9347   14.1808   15.1730   15.6225   15.8618   14.1583   14.3144   14.5157   14.6365   14.6582   14.5521
+
+  Columns 1015 through 1027
+
+   14.0492   13.6536   13.4727   14.0793   14.5322   14.8818   15.0634   15.5557   15.0146   15.2119   15.1392   14.6895   13.6527
+
+  Columns 1028 through 1040
+
+   14.4907   14.8924   14.4791   14.6081   14.6975   14.7464   14.7371   14.6194   14.2231   13.7360   13.4724   14.1990   14.7247
+
+  Columns 1041 through 1053
+
+   15.1372   15.4635   15.0346   14.1249   15.0344   15.2913   15.3233   15.0687   14.7696   14.3901   14.5949   14.7487   14.8074
+
+  Columns 1054 through 1066
+
+   14.8304   14.7997   14.6724   14.3461   13.8236   13.4781   14.4689   15.1063   15.4388   15.4441   14.8401   13.6543   15.0396
+
+  Columns 1067 through 1079
+
+   15.4501   15.5571   15.4715   15.2576   14.8656   14.6733   14.8535   14.8932   14.9075   14.8702   14.7594   14.5465   14.1459
+
+  Columns 1080 through 1092
+
+   13.2344   14.8006   15.3719   15.4119   15.2946   15.0915   14.2413   15.0206   15.5175   15.5977   15.5442   15.3535   14.9899
+
+  Columns 1093 through 1105
+
+   14.7348   14.9395   14.9606   14.9686   14.9221   14.8125   14.6765   14.4078   13.5377   15.2173   15.3612   15.3420   15.4444
+
+  Columns 1106 through 1118
+
+   15.5658   14.5383   15.5371   15.5879   15.5596   15.4718   15.2357   14.8202   14.7160   14.8990   14.9341   14.9706   14.9411
+
+  Columns 1119 through 1131
+
+   14.8226   14.6655   14.3170   13.8325   15.3031   15.3095   15.3570   15.5365   13.9276   15.3998   15.6671   15.5677   15.4100
+
+  Columns 1132 through 1144
+
+   15.2511   14.9557   14.5117   14.6919   14.8415   14.8791   14.9515   14.9930   14.9254   14.8193   14.4383   15.0355   15.2274
+
+  Columns 1145 through 1157
+
+   15.2689   15.3423   15.5303   14.8547   15.4471   15.6718   15.5698   15.2583   14.9425   14.5347   14.0349   14.6658   14.7565
+
+  Columns 1158 through 1170
+
+   14.7786   14.8926   15.0161   15.0336   15.0335   14.9330   15.1315   15.0835   15.1871   15.3010   14.2890   15.1132   15.3409
+
+  Columns 1171 through 1183
+
+   15.5930   15.6563   15.2610   14.7371   14.2032   13.8539   14.5884   14.0049   14.2363   14.7569   15.0017   15.0973   15.1597
+
+  Columns 1184 through 1196
+
+   15.2232   14.3657   14.

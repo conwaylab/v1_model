@@ -41,6 +41,45 @@ colorbar
 axis equal
 axis tight
 
+keyboard
+
+figure
+subplot(1,4,1)
+imagesc(onField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(onField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(onField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(onField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+keyboard 
+
+
 onAngles = visualToStandardPolar(onField.angleFlat);
 offAngles = visualToStandardPolar(offField.angleFlat);
 
@@ -75,11 +114,9 @@ title('OFF azimuth')
 colorbar
 axis equal
 axis tight
-set(gca,'YTickLabel',[]);
-set(gca,'XTickLabel',[]);
 
 %off elevation
-elev = abs(offY(~isnan(offY)));
+elev = offY(~isnan(offY));
 [~,sortI] = sort(elev);
 corticalCoords = zeros(length(offAngles),2);
 corticalCoords(:,1) = reshape(x,[],1);
@@ -93,8 +130,6 @@ title('OFF elev')
 colorbar
 axis equal
 axis tight
-set(gca,'YTickLabel',[]);
-set(gca,'XTickLabel',[]);
 
 %on azimuth
 az = onX(~isnan(onX));
@@ -111,11 +146,9 @@ title('ON azimuth')
 colorbar
 axis equal
 axis tight
-set(gca,'YTickLabel',[]);
-set(gca,'XTickLabel',[]);
 
 %on elevation
-elev = abs(onY(~isnan(onY)));
+elev = onY(~isnan(onY));
 [~,sortI] = sort(elev);
 corticalCoords = zeros(length(offAngles),2);
 corticalCoords(:,1) = reshape(x,[],1);
@@ -129,19 +162,8 @@ title('ON elev')
 colorbar
 axis equal
 axis tight
-set(gca,'YTickLabel',[]);
-set(gca,'XTickLabel',[]);
 
 keyboard
-
-
-%% temp
-
-rows = 200:240;
-cols = 0:25;
-
-% offX2D = reshape(
-
 
 %% look at receptive subfields near the fovea
 
@@ -165,8 +187,6 @@ figure
 imagesc(v1Display)
 axis equal
 axis tight
-set(gca,'YTickLabel',[]);
-set(gca,'XTickLabel',[]);
 
 keyboard
 
