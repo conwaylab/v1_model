@@ -41,6 +41,7 @@ colorbar
 axis equal
 axis tight
 
+<<<<<<< HEAD
 keyboard
 
 figure
@@ -77,6 +78,8 @@ colorbar
 axis equal
 axis tight
 
+=======
+>>>>>>> 0282137dfa672accc43909e6deb635817371377f
 keyboard 
 
 

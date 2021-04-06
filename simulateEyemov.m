@@ -85,7 +85,6 @@ axis square
 x = 1:401;
 y = 1:401;
 
-
 [subC,subR] = meshgrid(x,y);
 subR = reshape(subR,[],1);
 subC = reshape(subC,[],1);
