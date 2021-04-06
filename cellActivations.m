@@ -13,9 +13,12 @@ responseSigma = params.responseSigma;
 
 activations = zeros(size(cellModel.eccenFlat));
 nonNanI = find(~isnan(eccen));
-
+load('blankInds.mat')
 for i = 1:numel(nonNanI)
     ind = nonNanI(i);
+    if ismember(ind,blankInds)
+        thoo = 2;
+    end
     vertexEccen = eccen(ind);
     vertexSigma = sigma(ind);
     vertexAngle = angle(ind);

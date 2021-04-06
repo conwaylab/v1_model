@@ -38,7 +38,7 @@ for i = 1:numel(notNanI)
             offEccen(ind),dispAngle,eccenDisp(ind));
     end
     
-    if onField.angleFlat(ind) < -5 || onField.angleFlat(ind) > 180
+    if onField.angleFlat(ind) < 0 || onField.angleFlat(ind) > 180
         eccenDisp(ind) = eccenDisp(ind)*-1;
         [onField.angleFlat(ind),onField.eccenFlat(ind)] = addPolarVec(offAngle(ind),...
             offEccen(ind),dispAngle,eccenDisp(ind));

@@ -67,11 +67,133 @@ end
 
 keyboard
 
+allOffResponses2D = reshape(allOffResponses,401,401,100,5);
+allOnResponses2D = reshape(allOnResponses,401,401,100,5);
+
+figure
+imagesc(allOffResponses2D(:,:,1,1))
+
+%% define an area based on eccentricity and angle bounds
+% Seems that when the region does not include the low eccentricity area
+% near the fovea, the OFF correlations are significantly greater than the
+% ON
+isV1 = offField.isV1;
+
+maxEccenMult = 1.1;
+maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
+maxEccen = 6;
+% minEccen = 0;
+minEccen = 0.7; %ignores areas near the fovea
+
+eccenRange = [minEccen,maxEccen];
+angleRange = [0,180];
+
+eccenInds1 = find(offField.eccen >= eccenRange(1));
+eccenInds2 = find(offField.eccen <= eccenRange(2));
+eccenInds = intersect(eccenInds1,eccenInds2);
+angleInds1 = find(offField.angle >= angleRange(1));
+angleInds2 = find(offField.angle <= angleRange(2));
+angleInds = intersect(angleInds1,angleInds2);
+
+inds = intersect(eccenInds,angleInds);
+%remove edges (top and bottom)
+[subY,subX] = ind2sub([401,401],inds);
+subYinds1 = find(subY > 125);
+subYinds2 = find(subY < 310);
+subYinds = intersect(subYinds1,subYinds2);
+subInds = subYinds;
+subY = subY(subInds);
+subX = subX(subInds);
+% 
+inds = sub2ind([401,401],subY,subX);
+
+samp = allOnResponses2D(:,:,1,iSig);
+samp(inds) = 1;
+
+figure
+imagesc(samp)
+
+
+%% get the correlations and plot scatter of ON corr vs OFF corr
+iSig = 3;
+for i = 1:100
+    offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
+    onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
+end
+
+figure
+scatter(offCorrs1,onCorrs1)
+line([0,1],[0,1])
+
+compareOnOff = offCorrs1' - onCorrs1';
+checkCorrs = [offCorrs1',onCorrs1'];
+sum(compareOnOff > 0) / numel(compareOnOff)
+
+%% Look at the eye movement with the maximum on correlation relative to OFF
+
+[~,minI] = min(compareOnOff);
+
+sampOffResponsesFlat1 = allOffResponses(:,1,iSig);
+sampOffResponsesFlat2 = allOffResponses(:,minI,iSig);
+sampOnResponsesFlat1 = allOnResponses(:,1,iSig);
+sampOnResponsesFlat2 = allOnResponses(:,minI,iSig);
+
+rows = randi(401,401);
+cols = randi(401,401);
+sampOffResponses1 = reshape(sampOffResponsesFlat1,size(rows,1),size(cols,2));
+sampOffResponses2 = reshape(sampOffResponsesFlat2,size(rows,1),size(cols,2));
+sampOnResponses1 = reshape(sampOnResponsesFlat1,size(rows,1),size(cols,2));
+sampOnResponses2 = reshape(sampOnResponsesFlat2,size(rows,1),size(cols,2));
+
+figure
+subplot(2,2,1)
+imagesc(sampOffResponses1)
+subplot(2,2,2)
+imagesc(sampOffResponses2)
+subplot(2,2,3)
+imagesc(sampOnResponses1)
+subplot(2,2,4)
+imagesc(sampOnResponses2)
+
+% figure
+% scatter(sampOffResponses1(inds),sampOffResponses2(inds))
+% title('OFF')
+% figure
+% scatter(sampOnResponses1(inds),sampOnResponses2(inds))
+% title('ON')
+
+%% try averaging all the eye movements except the central one and then correlating
+iSig = 3;
+regionOffResponses = allOffResponses(inds,:,:);
+regionOnResponses = allOnResponses(inds,:,:);
+
+regOffMovMeanResponse = squeeze(mean(regionOffResponses(:,2:end,:),2));
+regOnMovMeanResponse = squeeze(mean(regionOnResponses(:,2:end,:),2));
+
+offCorr2 = corr(regionOffResponses(:,1,iSig),regOffMovMeanResponse(:,iSig))
+onCorr2 = corr(regionOnResponses(:,1,iSig),regOnMovMeanResponse(:,iSig))
+
+bootsamples = randi(99,1000,99)+1;
+for i = 1:1000
+    regOffMovMeanResponse = squeeze(mean(regionOffResponses(:,bootsamples(i,:),iSig),2));
+    regOnMovMeanResponse = squeeze(mean(regionOnResponses(:,bootsamples(i,:),iSig),2));
+    offCorrBoot(i) = corr(regionOffResponses(:,1,iSig),regOffMovMeanResponse);
+    onCorrBoot(i) = corr(regionOnResponses(:,1,iSig),regOnMovMeanResponse);
+end
+
+offCorrBootSort = sort(offCorrBoot);
+onCorrBootSort = sort(onCorrBoot);
+
+mean(offCorrBoot)
+offCorrCI = [offCorrBootSort(25),offCorrBootSort(975)]
+mean(onCorrBoot)
+onCorrCI = [onCorrBootSort(25),onCorrBootSort(975)]
+
 
 %% divide V1 into a bunch of windows
 
-windowSize = 15;
-stepSize = 7;
+windowSize = 50;
+stepSize = 50;
 
 windowInds = zeros(windowSize*windowSize,dims*dims);
 windowSubs = zeros(windowSize*windowSize,2,dims*dims);
@@ -140,7 +262,7 @@ axis tight
 offCorrs = zeros(numEyeMovs,numel(iV1),numel(onSigmaFractions));
 onCorrs = zeros(numEyeMovs,numel(iV1),numel(onSigmaFractions));
 
-for iSig = 1:3
+for iSig = 1:5
     for iWin = 1:numel(iV1)
         disp(iWin)
         thisOffResponse = allOffResponses(windowInds(:,iV1(iWin)),:,iSig);
@@ -154,10 +276,11 @@ for iSig = 1:3
     end
 end
 
-offCorrMean = squeeze(mean(offCorrs(2:numEyeMovs,:,:)));
-onCorrMean = squeeze(mean(onCorrs(2:numEyeMovs,:,:)));
+offCorrMean = squeeze(mean(offCorrs(2:numEyeMovs,:,:),2));
+onCorrMean = squeeze(mean(onCorrs(2:numEyeMovs,:,:),2));
 offOnDiff = offCorrMean - onCorrMean;
 
+%%
 figure
 scatter(offCorrMean(:,3),onCorrMean(:,3))
 line([0,1],[0,1])
@@ -222,3 +345,61 @@ figure
 imagesc(check2)
 figure
 imagesc(allOffResponses2D(:,:,40,1))
+
+%% OLD APPROACHES
+
+% % Split the movements randomly into two sets, averaged, and got the
+% % correlation between each set. No longer using because I realized that
+% % averaging the sets makes the eye movement distance irrelevant 
+% for i = 1:1000
+%     permInds = randperm(numEyeMovs);
+%     if mod(i,10) == 0
+%         disp(i)
+%     end
+%     offResponseSet1 = regionOffResponses(:,permInds(1:idivide(numEyeMovs,uint8(2))),:);
+%     offResponseSet2 = regionOffResponses(:,permInds(idivide(numEyeMovs,uint8(2))+1:end),:);
+%     onResponseSet1 = regionOnResponses(:,permInds(1:idivide(numEyeMovs,uint8(2))),:);
+%     onResponseSet2 = regionOnResponses(:,permInds(idivide(numEyeMovs,uint8(2))+1:end),:);
+%     
+%     offSet1Mean = squeeze(mean(offResponseSet1,2));
+%     offSet2Mean = squeeze(mean(offResponseSet2,2));
+%     onSet1Mean = squeeze(mean(onResponseSet1,2));
+%     onSet2Mean = squeeze(mean(onResponseSet2,2));
+% 
+%     % get the correlation between the means above
+%     offCorr(i) = corr(offSet1Mean(:,iSig),offSet2Mean(:,iSig));
+%     onCorr(i) = corr(onSet1Mean(:,iSig),onSet2Mean(:,iSig));
+% end
+% 
+% % this p value is not very reliable: get very different values on each
+% % iteration
+% % probably because there are wayy more than 1000 permutations of 100
+% % elements, so repeating the permutations 1000 times won't be
+% % representative of the possibilities 
+% onOffDiff = offCorr-onCorr;
+% p = sum(onOffDiff < 0) / 1000
+% 
+% offResponseSet1 = allOffResponses(:,permInds(1:idivide(numEyeMovs,uint8(2))),:);
+% offResponseSet2 = allOffResponses(:,permInds(idivide(numEyeMovs,uint8(2))+1:end),:);
+% onResponseSet1 = allOnResponses(:,permInds(1:idivide(numEyeMovs,uint8(2))),:);
+% onResponseSet2 = allOnResponses(:,permInds(idivide(numEyeMovs,uint8(2))+1:end),:);
+% 
+% offSet1Mean = squeeze(mean(offResponseSet1,2));
+% offSet2Mean = squeeze(mean(offResponseSet2,2));
+% onSet1Mean = squeeze(mean(onResponseSet1,2));
+% onSet2Mean = squeeze(mean(onResponseSet2,2));
+%     
+% offSet1Mean2D = reshape(offSet1Mean,dims,dims,[]);
+% offSet2Mean2D = reshape(offSet2Mean,dims,dims,[]);
+% onSet1Mean2D = reshape(onSet1Mean,dims,dims,[]);
+% onSet2Mean2D = reshape(onSet2Mean,dims,dims,[]);
+% 
+% figure
+% subplot(2,2,1)
+% imagesc(offSet1Mean2D(:,:,iSig))
+% subplot(2,2,2)
+% imagesc(offSet2Mean2D(:,:,iSig))
+% subplot(2,2,3)
+% imagesc(onSet1Mean2D(:,:,iSig))
+% subplot(2,2,4)
+% imagesc(onSet2Mean2D(:,:,iSig))
