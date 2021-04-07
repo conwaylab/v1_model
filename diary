@@ -199,3 +199,256 @@ In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('para
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 573)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',573,0)">line 573</a>)
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('varyParameters', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m', 55)" style="font-weight:bold">varyParameters</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m',55,0)">line 55</a>)] 
 DONE
+
+onSigmaFractions =
+
+    0.1000    1.0000    3.0000    5.0000   10.0000
+
+
+eyeMoveDists =
+
+    0.1000    0.3000    0.5000    0.8000    1.5000
+
+
+pinwheelSzs =
+
+    30   100   400   800
+
+
+ans =
+
+     7
+
+
+iterationName =
+
+    'param_variation2'
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 8).
+
+ans = 
+
+ <a href="matlab: helpPopup parallel.ProcessPool" style="font-weight:bold">ProcessPool</a> with properties: 
+
+            Connected: true
+           NumWorkers: 8
+              Cluster: <a href="matlab: parallel.internal.display.Displayer.displayObject('1F8B0800000000000000AD54414FC230142E73239228C18BE147988D70F2A60986A801314082372850615AD6D96D89DC3CFA533CFA533C7AF1CED19F60CB5A28DD000DBEE44BF7DEDEF75EDFEB6B41E6AA0E98E419DE18B20CFB0C472096CC623541BDD26871FD84C18714628CB0ED7A21A21EC4F6D00D7C0CA77635C2B882A38099EB6882BC90C8F8974AFC4311D7127A56E492F9B85E8C3FBF0CE59F445E38C978392D1EF7F9B096F10CA103A5DE92B5E41B297C753F16ABDF123A5F792F649C99F9BBBEF19AAB2E461D0A7D1FD16E57F65DE12FF3A5F785FB1733EBEB9E69FE86B0ED31B034A0C7F022F0CEF029FE4B694F7D042E600841CA39AE3D74901053E4DC2699145DB51920598FEEA34A5E59D57933855D3DDF63254E41E88B120771E9768D0C208EE3158CBFCD4B51E8CF0CB794DCB3A34FECF79AF45B21A1708478A2D0255E6CBF89261D421F110D56FD9BE82972290A1A1E763D547307C80B5C6FC4FDDB638AE050F3E7FB3EDDD20739D7B20F5CC771D9737E6F0BDFD1F85C77C664821CBEB571401D7B02430CFBCE3C6A57B4B6FB40FA81D32C97CAA57E629FD92DFDCD097B2CA5F3F97D56F8396333DF105FBBE5FD3ED3F9071A5F9F576B859F7C77753F9DAFE74B9B430056E7F0BFF9AF60F3BB7B07D43EC7BAFAEEAAF772977797CB0F81158454C0060000')">local</a>
+        AttachedFiles: {}
+    AutoAddClientPath: true
+          IdleTimeout: 30 minutes (30 minutes remaining)
+          SpmdEnabled: true
+
+On Sigma Fraction: 0.1
+Eye movement distance: 0.1
+Pinwheel Sz: 30
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.3
+Pinwheel Sz: 30
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.5
+Pinwheel Sz: 30
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+if system_dependent('IsDebugMode')==1, dbquit; end
+correlationVParams
+loading
+done loading
+if system_dependent('IsDebugMode')==1, dbquit; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+Undefined function 'spirals' for input arguments of type 'double'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('correlationVParams', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m', 41)" style="font-weight:bold">correlationVParams</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m',41,0)">line 41</a>)
+maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
+
+[Warning: MATLAB has disabled some advanced graphics rendering features by switching to software OpenGL. For more information, click
+<a href="matlab:opengl('problems')">here</a>.] 
+Unable to perform assignment because the left and right sides have a different number of elements.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('correlationVParams', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m', 65)" style="font-weight:bold">correlationVParams</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m',65,0)">line 65</a>)
+            offResponses(isV1) = allOffResponses{iSig,iEye,iPin};
+
+size(offResponses(isV1))
+
+ans =
+
+       52801           1
+
+size(allOffResponses{iSig,iEye,iPin})
+
+ans =
+
+       52801          50
+
+Unable to perform assignment because the size of the left side is 52801-by-20050 and the size of the right side is 52801-by-50.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('correlationVParams', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m', 65)" style="font-weight:bold">correlationVParams</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m',65,0)">line 65</a>)
+            offResponses(isV1,:) = allOffResponses{iSig,iEye,iPin};
+
+size(allOffCorrs)
+
+ans =
+
+    50     5     5     4
+
+check = num2str(eyemoveDists)
+{Unrecognized function or variable 'eyemoveDists'.
+} 
+check = num2str(eyeMoveDists);
+IdleTimeout has been reached.
+Parallel pool using the 'local' profile is shutting down.
+check = allOffCorrs(:,3,3,3);
+check1 = allOffResponses{3,3,3};
+Unable to perform assignment because the size of the left side is 50-by-1 and the size of the right side is 49-by-1.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('correlationVParams', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m', 73)" style="font-weight:bold">correlationVParams</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/correlationVParams.m',73,0)">line 73</a>)
+                allOffCorrs(:,iSig,iEye,iPin) = offCorrs;
+
+
+ans =
+
+    0.6122
+
+
+ans =
+
+    0.6122
+
+close all
+varyParameters
+
+onSigmaFractions =
+
+    0.0100    0.1000    1.0000
+
+
+eyeMoveDists =
+
+    0.1000    0.3000    0.5000    0.8000
+
+
+pinwheelSzs =
+
+    30   100   400   800
+
+
+ans =
+
+     7
+
+
+iterationName =
+
+    'param_variation3'
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parpool', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/cluster/parpool.m', 149)" style="font-weight:bold">parpool</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/cluster/parpool.m',149,0)">line 149</a>)
+Found an interactive session. You cannot have multiple interactive sessions open simultaneously. To terminate the existing
+session, use <a href="matlab:delete(gcp('nocreate'))">delete(gcp('nocreate'))</a>.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('varyParameters', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m', 53)" style="font-weight:bold">varyParameters</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m',53,0)">line 53</a>)
+parpool('local',8)
+} 
+varyParameters
+
+onSigmaFractions =
+
+    0.0100    0.1000    1.0000    3.0000
+
+
+eyeMoveDists =
+
+    0.1000    0.3000    0.5000
+
+
+pinwheelSzs =
+
+   100   400   800
+
+
+ans =
+
+     7
+
+
+iterationName =
+
+    'param_variation3'
+
+On Sigma Fraction: 0.01
+Eye movement distance: 0.1
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop will now run again on the remaining workers.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/remoteparfor/handleIntervalErrorResult', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m', 245)" style="font-weight:bold">distcomp/remoteparfor/handleIntervalErrorResult</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m',245,0)">line 245</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/remoteparfor/getCompleteIntervals', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m', 392)" style="font-weight:bold">distcomp/remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m',392,0)">line 392</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 741)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',741,0)">line 741</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 573)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',573,0)">line 573</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('varyParameters', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m', 74)" style="font-weight:bold">varyParameters</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m',74,0)">line 74</a>)] 
+Eye movement distance: 0.3
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.5
+Pinwheel Sz: 100
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop will now run again on the remaining workers.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/remoteparfor/handleIntervalErrorResult', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m', 245)" style="font-weight:bold">distcomp/remoteparfor/handleIntervalErrorResult</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m',245,0)">line 245</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/remoteparfor/getCompleteIntervals', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m', 392)" style="font-weight:bold">distcomp/remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m',392,0)">line 392</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 741)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',741,0)">line 741</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 573)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',573,0)">line 573</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('varyParameters', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m', 74)" style="font-weight:bold">varyParameters</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m',74,0)">line 74</a>)] 
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+On Sigma Fraction: 0.1
+Eye movement distance: 0.1
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.3
+Pinwheel Sz: 100
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop will now run again on the remaining workers.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/remoteparfor/handleIntervalErrorResult', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m', 245)" style="font-weight:bold">distcomp/remoteparfor/handleIntervalErrorResult</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m',245,0)">line 245</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/remoteparfor/getCompleteIntervals', '/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m', 392)" style="font-weight:bold">distcomp/remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/parallel/distcomp/+distcomp/remoteparfor.m',392,0)">line 392</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 741)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',741,0)">line 741</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', '/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m', 573)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('/usr/local/apps/Matlab/R2020b/toolbox/matlab/lang/parallel_function.m',573,0)">line 573</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('varyParameters', '/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m', 74)" style="font-weight:bold">varyParameters</a> (<a href="matlab: opentoline('/spin1/home/linux/singhsr/Intermediates_Study/Light_Dark/simulation/v1_model/varyParameters.m',74,0)">line 74</a>)] 
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.5
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+On Sigma Fraction: 1
+Eye movement distance: 0.1
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.3
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.5
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+On Sigma Fraction: 3
+Eye movement distance: 0.1
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.3
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+Eye movement distance: 0.5
+Pinwheel Sz: 100
+Pinwheel Sz: 400
+Pinwheel Sz: 800
+DONE
+IdleTimeout has been reached.
+Parallel pool using the 'local' profile is shutting down.

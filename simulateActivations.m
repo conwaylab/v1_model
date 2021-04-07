@@ -18,7 +18,7 @@ dims = params.dims+1;
 
 th = linspace(0,360,250);
 b = 0.7;
-a = 0.08;
+a = 0.18;
 spiral = logSpiral(th,b,a,[0,0]);
 
 figure

@@ -27,18 +27,19 @@ else
     numEyeMovs = 100;
     spiral.th = linspace(0,360,250);
     spiral.b = 0.7;
-    spiral.a = 0.08;
+    spiral.a = 0.18;
     eyeMoveDist = 0.5;
-    spirals = centeredEyeMovements(spiral,numEyeMovs,eyeMoveDist,[0,0]);
+    spirals = centeredEyeMovements360(spiral,numEyeMovs,eyeMoveDist,[0,0]);
 end
 
 %% get the response to each eye movement
-
 if loadResponses
     load([responseFilePath '.mat'],'allOffResponses','allOnResponses',...
         'onSigmaFractions')
 else
-    onSigmaFractions = [0.5,1,2,3,5];
+%     onSigmaFractions = [0.5,1,2,3,5];
+    onSigmaFractions = [1,2,3];
+    parpool('local',8)
     for iter = 1:numel(onSigmaFractions)
         params.onSigmaFraction = onSigmaFractions(iter);
         [offField,onField] = makeFlatMaps(params,paths);
@@ -63,12 +64,16 @@ else
     fprintf(fileID,['eyeMoveMax: ',num2str(eyeMoveDist),'\n']);
     fprintf(fileID,['numEyeMovs: ',num2str(numEyeMovs),'\n']);
     fclose(fileID);
+    
+    data.sigma
+    
 end
 
 keyboard
 
-allOffResponses2D = reshape(allOffResponses,401,401,100,5);
-allOnResponses2D = reshape(allOnResponses,401,401,100,5);
+nSigFrac = numel(onSigmaFractions);
+allOffResponses2D = reshape(allOffResponses,401,401,100,nSigFrac);
+allOnResponses2D = reshape(allOnResponses,401,401,100,nSigFrac);
 
 figure
 imagesc(allOffResponses2D(:,:,1,1))
@@ -77,36 +82,21 @@ imagesc(allOffResponses2D(:,:,1,1))
 % Seems that when the region does not include the low eccentricity area
 % near the fovea, the OFF correlations are significantly greater than the
 % ON
+
+iSig = 1;
 isV1 = offField.isV1;
 
 maxEccenMult = 1.1;
 maxEccen = max(spirals(1).coords,[],'all')*maxEccenMult;
-maxEccen = 6;
+% maxEccen = 6;
 % minEccen = 0;
 minEccen = 0.7; %ignores areas near the fovea
 
 eccenRange = [minEccen,maxEccen];
 angleRange = [0,180];
+edges = [125,310];
 
-eccenInds1 = find(offField.eccen >= eccenRange(1));
-eccenInds2 = find(offField.eccen <= eccenRange(2));
-eccenInds = intersect(eccenInds1,eccenInds2);
-angleInds1 = find(offField.angle >= angleRange(1));
-angleInds2 = find(offField.angle <= angleRange(2));
-angleInds = intersect(angleInds1,angleInds2);
-
-inds = intersect(eccenInds,angleInds);
-%remove edges (top and bottom)
-[subY,subX] = ind2sub([401,401],inds);
-subYinds1 = find(subY > 125);
-subYinds2 = find(subY < 310);
-subYinds = intersect(subYinds1,subYinds2);
-subInds = subYinds;
-subY = subY(subInds);
-subX = subX(subInds);
-% 
-inds = sub2ind([401,401],subY,subX);
-
+inds = defineRegion(offField,eccenRange,angleRange,edges);
 samp = allOnResponses2D(:,:,1,iSig);
 samp(inds) = 1;
 
@@ -115,7 +105,7 @@ imagesc(samp)
 
 
 %% get the correlations and plot scatter of ON corr vs OFF corr
-iSig = 3;
+iSig = 1;
 for i = 1:100
     offCorrs1(i) = corr(allOffResponses(inds,1,iSig),allOffResponses(inds,i,iSig));
     onCorrs1(i) = corr(allOnResponses(inds,1,iSig),allOnResponses(inds,i,iSig));
@@ -188,6 +178,9 @@ mean(offCorrBoot)
 offCorrCI = [offCorrBootSort(25),offCorrBootSort(975)]
 mean(onCorrBoot)
 onCorrCI = [onCorrBootSort(25),onCorrBootSort(975)]
+
+offOnCorrBootDiff = offCorrBoot - onCorrBoot;
+p = sum(offOnCorrBootDiff <= 0) / 1000
 
 
 %% divide V1 into a bunch of windows
