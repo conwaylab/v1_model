@@ -3,7 +3,7 @@ clearvars
 
 addpath(genpath([pwd '/lilac4_sim']))
 
-initializeParametersVariableDisplacement
+[params,paths] = initializeParametersVariableDisplacement
 load([paths.modelDir params.desc '.mat'])
 % 
 load('flatmapV1_highres.mat')
@@ -20,7 +20,7 @@ keyboard
 
 %% 1: 
 th = linspace(0,360,250);
-b = 0.9;
+b = 0.7;
 a = 0.08;
 spiral = logSpiral(th,b,a,[0,0]);
 

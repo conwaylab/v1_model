@@ -80,11 +80,10 @@ axis equal
 axis square
 
 %% look at a small window near the fovea
-x = 2:28;
-y = 198:236;
-% x = 1:401;
-% y = 1:401;
-
+% x = 2:28;
+% y = 198:236;
+x = 1:401;
+y = 1:401;
 
 [subC,subR] = meshgrid(x,y);
 subR = reshape(subR,[],1);
@@ -108,6 +107,10 @@ imagesc(onResponses2D(y,x,2))
 offCorr = corr(offResponseFovea(:,1),offResponseFovea(:,2))
 onCorr = corr(onResponseFovea(:,1),onResponseFovea(:,2))
 
+isV1 = offField.isV1;
+offCorr = corr(offResponseFovea(isV1,1),offResponseFovea(isV1,2))
+onCorr = corr(onResponseFovea(isV1,1),onResponseFovea(isV1,2))
+
 figure
 scatter(offResponseFovea(:,1),offResponseFovea(:,2))
 ylim([0,1.4])
@@ -128,8 +131,8 @@ hold on
 scatter(spirals(2).coords(:,1),spirals(2).coords(:,2))
 
 %% define a bunch of windows that cover all of V1 
-windowSize = 15;
-stepSize = 15;
+windowSize = 30;
+stepSize = 30;
 windowInds = zeros(windowSize*windowSize,dims*dims);
 windowSubs = zeros(windowSize*windowSize,2,dims*dims);
 windowCntrs = zeros(dims*dims,2);

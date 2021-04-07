@@ -48,6 +48,7 @@ axis tight
 
 keyboard
 
+
 %% look at subregion
 regionSize = 15;
 regionCenter = [14,215]; %[x,y] or [col,row]

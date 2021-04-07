@@ -41,6 +41,45 @@ colorbar
 axis equal
 axis tight
 
+<<<<<<< HEAD
+keyboard
+
+figure
+subplot(1,4,1)
+imagesc(onField.orientation)
+title('Orientation columns')
+colormap hsv
+axis equal
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,2)
+imagesc(onField.angle)
+title('Angle')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,3)
+imagesc(onField.eccen)
+title('Eccentricity')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+subplot(1,4,4)
+imagesc(onField.sigma)
+title('pRF Sigma')
+colormap hsv
+colorbar
+axis equal
+axis tight
+
+=======
+>>>>>>> 0282137dfa672accc43909e6deb635817371377f
 keyboard 
 
 
